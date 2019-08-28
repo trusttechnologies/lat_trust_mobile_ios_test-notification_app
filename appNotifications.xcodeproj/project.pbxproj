@@ -3,23 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		265400A7E9601D0B07BFF1DC /* Pods_appNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E49FF6AEE79530892F81A1E /* Pods_appNotifications.framework */; };
+		7BBFC55A23170BAB0017AC47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFC55923170BAB0017AC47 /* GoogleService-Info.plist */; };
 		83234CC723158AF600FA2F1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83234CC623158AF600FA2F1B /* AppDelegate.swift */; };
 		83234CC923158AF600FA2F1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83234CC823158AF600FA2F1B /* ViewController.swift */; };
 		83234CCC23158AF600FA2F1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83234CCA23158AF600FA2F1B /* Main.storyboard */; };
 		83234CCE23158AF800FA2F1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83234CCD23158AF800FA2F1B /* Assets.xcassets */; };
 		83234CD123158AF800FA2F1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83234CCF23158AF800FA2F1B /* LaunchScreen.storyboard */; };
 		83234CDA2315929A00FA2F1B /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83234CD92315929A00FA2F1B /* PushNotifications.swift */; };
-		83234CDC2315958900FA2F1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83234CDB2315958900FA2F1B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6E1EACDE18C27C5BEC52C3DA /* Pods-appNotifications.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appNotifications.debug.xcconfig"; path = "Target Support Files/Pods-appNotifications/Pods-appNotifications.debug.xcconfig"; sourceTree = "<group>"; };
 		6E49FF6AEE79530892F81A1E /* Pods_appNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_appNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BBFC55923170BAB0017AC47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83234CC323158AF600FA2F1B /* appNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83234CC623158AF600FA2F1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83234CC823158AF600FA2F1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,7 +30,6 @@
 		83234CD223158AF800FA2F1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83234CD823158E3600FA2F1B /* appNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = appNotifications.entitlements; sourceTree = "<group>"; };
 		83234CD92315929A00FA2F1B /* PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
-		83234CDB2315958900FA2F1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9F8D43F6B960229EB0208473 /* Pods-appNotifications.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appNotifications.release.xcconfig"; path = "Target Support Files/Pods-appNotifications/Pods-appNotifications.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				83234CD823158E3600FA2F1B /* appNotifications.entitlements */,
+				7BBFC55923170BAB0017AC47 /* GoogleService-Info.plist */,
 				83234CC623158AF600FA2F1B /* AppDelegate.swift */,
 				83234CC823158AF600FA2F1B /* ViewController.swift */,
 				83234CD92315929A00FA2F1B /* PushNotifications.swift */,
@@ -91,7 +92,6 @@
 				83234CCD23158AF800FA2F1B /* Assets.xcassets */,
 				83234CCF23158AF800FA2F1B /* LaunchScreen.storyboard */,
 				83234CD223158AF800FA2F1B /* Info.plist */,
-				83234CDB2315958900FA2F1B /* GoogleService-Info.plist */,
 			);
 			path = appNotifications;
 			sourceTree = "<group>";
@@ -167,8 +167,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BBFC55A23170BAB0017AC47 /* GoogleService-Info.plist in Resources */,
 				83234CD123158AF800FA2F1B /* LaunchScreen.storyboard in Resources */,
-				83234CDC2315958900FA2F1B /* GoogleService-Info.plist in Resources */,
 				83234CCE23158AF800FA2F1B /* Assets.xcassets in Resources */,
 				83234CCC23158AF600FA2F1B /* Main.storyboard in Resources */,
 			);
@@ -183,30 +183,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-appNotifications/Pods-appNotifications-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/TrustDeviceInfo/TrustDeviceInfo.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-appNotifications/Pods-appNotifications-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrustDeviceInfo.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-appNotifications/Pods-appNotifications-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

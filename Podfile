@@ -9,8 +9,6 @@ target 'appNotifications' do
   use_frameworks!
   
   pod 'MaterialComponents/Buttons'
-  pod 'MaterialComponents/Buttons+ButtonThemer'
-
   # Pods for appNotifications
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
