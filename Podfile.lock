@@ -74,6 +74,69 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.2.5):
     - GoogleUtilities/Logger
+  - MaterialComponents/AnimationTiming (88.0.1)
+  - MaterialComponents/Buttons (88.0.1):
+    - MaterialComponents/Elevation
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - "MaterialComponents/Buttons+ButtonThemer (88.0.1)":
+    - MaterialComponents/Buttons
+    - "MaterialComponents/Buttons+ColorThemer"
+    - "MaterialComponents/Buttons+ShapeThemer"
+    - "MaterialComponents/Buttons+TypographyThemer"
+    - MaterialComponents/Palettes
+  - "MaterialComponents/Buttons+ColorThemer (88.0.1)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Color
+  - "MaterialComponents/Buttons+ShapeThemer (88.0.1)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Shape
+  - "MaterialComponents/Buttons+TypographyThemer (88.0.1)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Typography
+  - MaterialComponents/Elevation (88.0.1):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/Ink (88.0.1):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/Palettes (88.0.1)
+  - MaterialComponents/private/Application (88.0.1)
+  - MaterialComponents/private/Color (88.0.1)
+  - MaterialComponents/private/Math (88.0.1)
+  - MaterialComponents/Ripple (88.0.1):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/schemes/Color (88.0.1):
+    - MaterialComponents/private/Color
+  - MaterialComponents/schemes/Shape (88.0.1):
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+  - MaterialComponents/schemes/Typography (88.0.1):
+    - MaterialComponents/Typography
+  - MaterialComponents/ShadowElevations (88.0.1)
+  - MaterialComponents/ShadowLayer (88.0.1):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (88.0.1):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (88.0.1):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/Typography (88.0.1):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (2.0.0)
+  - MDFTextAccessibility (2.0.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -89,6 +152,8 @@ PODS:
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
+  - MaterialComponents/Buttons
+  - "MaterialComponents/Buttons+ButtonThemer"
   - TrustDeviceInfo
 
 SPEC REPOS:
@@ -108,6 +173,9 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
     - nanopb
     - ObjectMapper
     - Protobuf
@@ -130,11 +198,14 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 91e682bd60a49d3f8f69f2e909a66efaed5a1e7a
   GoogleDataTransportCCTSupport: 6b545f7149111180763dc18c6f372c963de4a310
   GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
+  MaterialComponents: e98245f7a1a9802fe442fa4d1f3acbb727ece9ec
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   TrustDeviceInfo: bca32888b22967f0a29853ed28da06cbcf20a299
 
-PODFILE CHECKSUM: a6fc3b8de31a9b216bff747130b4c307acdf2bb0
+PODFILE CHECKSUM: fe69f4307567f90627286e6510c4e531c66321bf
 
-COCOAPODS: 1.6.2
+COCOAPODS: 1.7.5

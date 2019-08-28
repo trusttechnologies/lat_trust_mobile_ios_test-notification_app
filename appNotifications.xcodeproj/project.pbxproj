@@ -393,13 +393,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = appNotifications/appNotifications.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KPR7699U74;
+				DEVELOPMENT_TEAM = P896AB2AMC;
 				INFOPLIST_FILE = appNotifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jumpitt.appNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = trust.appNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -413,13 +413,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = appNotifications/appNotifications.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KPR7699U74;
+				DEVELOPMENT_TEAM = P896AB2AMC;
 				INFOPLIST_FILE = appNotifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jumpitt.appNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = trust.appNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
