@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dialog View Controller-->
+        <scene sceneID="tWL-pz-Q7y">
+            <objects>
+                <viewController storyboardIdentifier="DialogView" id="Xu1-a5-sFc" customClass="DialogViewController" customModule="NotificationsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zQQ-XW-d0E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UT-bf-ulj">
+                                <rect key="frame" x="64" y="261.66666666666663" width="247" height="288.66666666666663"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efk-ZO-6ly">
+                                        <rect key="frame" x="32" y="208.33333333333331" width="183" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0x9-J5-d8W">
+                                        <rect key="frame" x="0.0" y="238.66666666666663" width="247" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doe-Su-yte">
+                                                <rect key="frame" x="0.0" y="0.0" width="123.66666666666667" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="leftButton:" destination="Xu1-a5-sFc" eventType="touchUpInside" id="ODm-bc-uz7"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0M9-DS-ikH">
+                                                <rect key="frame" x="123.66666666666666" y="0.0" width="123.33333333333334" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="rightButton:" destination="Xu1-a5-sFc" eventType="touchUpInside" id="bRx-9n-Wwl"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="V8b-qD-suK"/>
+                                            <constraint firstItem="doe-Su-yte" firstAttribute="width" secondItem="0x9-J5-d8W" secondAttribute="width" multiplier="0.5" id="hAq-aH-PUT"/>
+                                        </constraints>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapa-de-ubicacion" translatesAutoresizingMaskIntoConstraints="NO" id="zTa-40-DrT">
+                                        <rect key="frame" x="83.666666666666657" y="104.33333333333331" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="X4C-TV-R5p"/>
+                                            <constraint firstAttribute="height" constant="80" id="pEC-CO-wAz"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4UT-bf-ulj" secondAttribute="height" multiplier="302:353" id="5CI-lI-BHo"/>
+                                    <constraint firstItem="zTa-40-DrT" firstAttribute="centerY" secondItem="4UT-bf-ulj" secondAttribute="centerY" id="AMD-vz-F2Y"/>
+                                    <constraint firstItem="0x9-J5-d8W" firstAttribute="leading" secondItem="4UT-bf-ulj" secondAttribute="leading" id="F3r-54-B88"/>
+                                    <constraint firstAttribute="trailing" secondItem="Efk-ZO-6ly" secondAttribute="trailing" constant="32" id="HAL-lY-BU5"/>
+                                    <constraint firstItem="0x9-J5-d8W" firstAttribute="width" secondItem="4UT-bf-ulj" secondAttribute="width" id="HH2-K7-fGw"/>
+                                    <constraint firstItem="Efk-ZO-6ly" firstAttribute="top" secondItem="zTa-40-DrT" secondAttribute="bottom" constant="24" id="NK6-yd-u9Y"/>
+                                    <constraint firstItem="zTa-40-DrT" firstAttribute="centerX" secondItem="4UT-bf-ulj" secondAttribute="centerX" id="P5Q-jT-EPi"/>
+                                    <constraint firstAttribute="bottom" secondItem="0x9-J5-d8W" secondAttribute="bottom" id="hLX-7Z-Qk5"/>
+                                    <constraint firstItem="Efk-ZO-6ly" firstAttribute="leading" secondItem="4UT-bf-ulj" secondAttribute="leading" constant="32" id="xF4-vL-8Vk"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ye-d3-piC">
+                                <rect key="frame" x="158" y="281.66666666666669" width="59.333333333333343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4UT-bf-ulj" firstAttribute="centerX" secondItem="zQQ-XW-d0E" secondAttribute="centerX" id="1ne-Pt-3Vm"/>
+                            <constraint firstItem="4UT-bf-ulj" firstAttribute="centerY" secondItem="zQQ-XW-d0E" secondAttribute="centerY" id="806-0y-2Ko"/>
+                            <constraint firstItem="4UT-bf-ulj" firstAttribute="leading" secondItem="0gW-Ed-TTL" secondAttribute="leading" constant="64" id="Gkq-1t-D4I"/>
+                            <constraint firstItem="2Ye-d3-piC" firstAttribute="centerX" secondItem="zQQ-XW-d0E" secondAttribute="centerX" id="RO0-84-RMu"/>
+                            <constraint firstItem="2Ye-d3-piC" firstAttribute="top" secondItem="4UT-bf-ulj" secondAttribute="top" constant="20" id="ege-i1-cul"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0gW-Ed-TTL"/>
+                    </view>
+                    <connections>
+                        <outlet property="bodyLabel" destination="Efk-ZO-6ly" id="NfH-1Y-sv0"/>
+                        <outlet property="imageIcon" destination="zTa-40-DrT" id="foG-Ae-W4r"/>
+                        <outlet property="titleLabel" destination="2Ye-d3-piC" id="JYx-hg-0rJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k1y-vC-D6F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2520.289855072464" y="-774.10714285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mapa-de-ubicacion" width="512" height="512"/>
+    </resources>
+</document>
