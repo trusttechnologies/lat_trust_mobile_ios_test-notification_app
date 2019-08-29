@@ -40,8 +40,9 @@ class PushNotifications: NSObject, MessagingDelegate, UNUserNotificationCenterDe
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
         Identify.shared.trustDeviceInfoDelegate = self
-        Identify.shared.set(serviceName: "defaultServiceName", accessGroup: "KPR7699U74.jumpitt.appNotifications")
-        
+        Identify.shared.set(serviceName: "defaultServiceName", accessGroup: "P896AB2AMC.trust.appNotifications")
+        Identify.shared.createClientCredentials(clientID: "982862e9fa91bc66da8fd5731241ab9f3c9c0ca7df8e6fc9eeb47b97c160f39b", clientSecret: "5608eba6cc53cd94abca50ec3f87142006af9fdf5f2d278445f604218467f5d7")
+        print("CLIENT CREDENTIALS: \(Identify.shared.getClientCredentials())")
         Identify.shared.enable()
         //Identify.shared.getTrustID()
         let bundle = Bundle.main.bundleIdentifier
