@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var notifications = PushNotifications()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        FirebaseApp.configure()
-        notifications.registerForPushNotifications()
+
+        notifications.firebaseConfig(application: application)
+        notifications.registerForRemoteNotifications(application: application)
         notifications.registerCustomNotificationCategory()
 
         return true
@@ -59,17 +59,14 @@ extension AppDelegate{
         print("Device Token: \(token)")
     }
     
-//    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-//        // 1. Print out error if PNs registration not successful
-//        print("Failed to register for remote notifications with error: \(error)")
-//    }
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Unable to register for remote notifications: \(error.localizedDescription)")
+    }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
-        // Print full message.
-        print(userInfo)
     }
 }
+
