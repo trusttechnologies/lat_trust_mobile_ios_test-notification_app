@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ObjectMapper
 
 // MARK: Load image from URL
 extension UIImageView {
@@ -39,13 +40,13 @@ func verifyUrl (urlString: String?) -> Bool {
 }
 
 func parseNotification(content: [AnyHashable: Any]) -> GenericNotification {
+
     
-    let jsonData = try! JSONSerialization.data(withJSONObject: content, options: .prettyPrinted)
+    print(JSONSerialization.isValidJSONObject(content["data"]))
+    let jsonData = try! JSONSerialization.data(withJSONObject: content["data"], options: .prettyPrinted)
     let jsonDecoder = JSONDecoder()
-    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-    
+
     let notDialog = try! jsonDecoder.decode(GenericNotification.self, from: jsonData)
-    print(notDialog)
-    
+
     return notDialog
 }

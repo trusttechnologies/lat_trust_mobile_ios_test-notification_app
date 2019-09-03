@@ -12,11 +12,11 @@ import Firebase
 import FirebaseMessaging
 import TrustDeviceInfo
 
-class PushNotifications: NSObject{
+class PushNotifications: NSObject {
     
-    var genericNotification: GenericNotification = GenericNotification()
+    //var genericNotification: GenericNotification = GenericNotification.
     
-    func firebaseConfig(application: UIApplication){
+    func firebaseConfig(application: UIApplication) {
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
         // Set the messaging delegate
@@ -76,8 +76,8 @@ extension PushNotifications: MessagingDelegate{
         
         Identify.shared.enable()
         //Identify.shared.getTrustID()
-        //let bundle = Bundle.main.bundleIdentifier
-        //Identify.shared.registerFirebaseToken(firebaseToken: fcmToken, bundleID: bundle!)
+        let bundle = Bundle.main.bundleIdentifier
+        Identify.shared.registerFirebaseToken(firebaseToken: fcmToken, bundleID: bundle!)
         
     }
     
@@ -118,10 +118,11 @@ extension PushNotifications: UNUserNotificationCenterDelegate{
         
         let userInfo = notification.request.content.userInfo
         print(userInfo)
-        genericNotification = parseNotification(content: userInfo)
+        
+        let genericNotification = parseNotification(content: userInfo)
         presentDialog(content: genericNotification)
         // With swizzling disabled you must let Messaging know about the message, for Analytics
-        Messaging.messaging().appDidReceiveMessage(userInfo)
+        Messaging.messaging().appDidReceiveMessage(notification.request.content.userInfo)
         
         
         
@@ -141,7 +142,7 @@ extension PushNotifications: UNUserNotificationCenterDelegate{
             UIApplication.shared.applicationIconBadgeNumber = 0
         default:
             print("Other Action")
-            genericNotification = parseNotification(content: response.notification.request.content.userInfo)
+            let genericNotification = parseNotification(content: response.notification.request.content.userInfo)
             presentDialog(content: genericNotification)
         }
         

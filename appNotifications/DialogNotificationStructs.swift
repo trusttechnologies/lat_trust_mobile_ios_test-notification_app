@@ -6,20 +6,36 @@
 //  Copyright © 2019 Cristian Parra. All rights reserved.
 //
 
+// ObjectMapper
+
 import Foundation
 
-struct GenericNotification: Codable{
-    var notificationDialog: DialogNotification?
+struct GenericNotification: Codable {
+    var notificationDialog: NotificationDialog?
     var notificationVideo: String?
     var notificationBody: String?
+
+    enum CodingKeys: String, CodingKey {
+        case notificationDialog
+        case notificationVideo
+        case notificationBody
+    }
 }
 
-struct DialogNotification: Codable {
+struct NotificationDialog: Codable {
     var textBody: String
     var imageUrl: String
     var isPersistent: Bool
     var isCancelable: Bool
-    var buttons: [Button]
+    var buttons: [Button]?
+
+    enum CodingKeys: String, CodingKey {
+        case buttons
+        case imageUrl = "image_url"
+        case isPersistent = "isPersistent"
+        case isCancelable = "isCancelable"
+        case textBody = "text_body"
+    }
 }
 
 struct VideoNotification: Codable {
@@ -27,6 +43,14 @@ struct VideoNotification: Codable {
     var minPlayTime: String
     var isPersistent: Bool
     var buttons: [Button]
+
+    enum CodingKeys: String, CodingKey {
+        case buttons
+        case videoUrl = "video_url"
+        case minPlayTime = "min_play_time"
+        case isPersistent = "isPersistent"
+
+    }
 }
 
 struct BodyNotification: Codable {
@@ -34,9 +58,17 @@ struct BodyNotification: Codable {
     var textBody: String
     var imageUrl: String
     var buttons: [Button]
+
+    enum CodingKeys: String, CodingKey {
+        case buttons
+        case textTitle = "text_title"
+        case textBody = "text_body"
+        case imageUrl = "image_url"
+
+    }
 }
 
-struct Button: Codable{
+struct Button: Codable {
     var type: String
     var text: String
     var color: String

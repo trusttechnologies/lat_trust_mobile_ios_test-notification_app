@@ -41,7 +41,7 @@ class DialogViewController: UIViewController {
         }
     }
     
-    func fillDialog(content: GenericNotification!){
+    func fillDialog(content: GenericNotification!) {
         let imageView = UIImageView()
         let body = UILabel()
         if(content.notificationDialog != nil){
@@ -49,7 +49,8 @@ class DialogViewController: UIViewController {
             
             //Set the dialog image
             if(verifyUrl(urlString: content.notificationDialog?.imageUrl)){
-                imageView.load(url: content.notificationDialog?.imageUrl as! URL)
+                let url = NSURL(string: content.notificationDialog!.imageUrl)
+                imageView.load(url: url! as URL)
                 imageView.frame = CGRect(x: dialogView.center.x - 60, y: 50, width: 120, height: 120)
                 dialogView.addSubview(imageView)
             }else{
@@ -77,8 +78,11 @@ class DialogViewController: UIViewController {
             //Set body label
             body.text = content.notificationDialog?.textBody
             body.textAlignment = NSTextAlignment.center
-            body.frame = CGRect(x: 12 , y: imageView.bounds.maxY + 48, width: dialogView.bounds.width - 24, height: 40)
+            body.frame = CGRect(x: 12 , y: imageView.bounds.maxY + 78, width: dialogView.bounds.width - 24, height: 40)
+            body.numberOfLines = 5
             dialogView.addSubview(body)
+            
+            print(content.notificationDialog?.buttons)
             
             
             

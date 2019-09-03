@@ -86,28 +86,12 @@ PODS:
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
-  - "MaterialComponents/Buttons+ButtonThemer (88.0.1)":
-    - MaterialComponents/Buttons
-    - "MaterialComponents/Buttons+ColorThemer"
-    - "MaterialComponents/Buttons+ShapeThemer"
-    - "MaterialComponents/Buttons+TypographyThemer"
-    - MaterialComponents/Palettes
-  - "MaterialComponents/Buttons+ColorThemer (88.0.1)":
-    - MaterialComponents/Buttons
-    - MaterialComponents/schemes/Color
-  - "MaterialComponents/Buttons+ShapeThemer (88.0.1)":
-    - MaterialComponents/Buttons
-    - MaterialComponents/schemes/Shape
-  - "MaterialComponents/Buttons+TypographyThemer (88.0.1)":
-    - MaterialComponents/Buttons
-    - MaterialComponents/schemes/Typography
   - MaterialComponents/Elevation (88.0.1):
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
   - MaterialComponents/Ink (88.0.1):
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/Palettes (88.0.1)
   - MaterialComponents/private/Application (88.0.1)
   - MaterialComponents/private/Color (88.0.1)
   - MaterialComponents/private/Math (88.0.1)
@@ -115,19 +99,9 @@ PODS:
     - MaterialComponents/AnimationTiming
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/schemes/Color (88.0.1):
-    - MaterialComponents/private/Color
-  - MaterialComponents/schemes/Shape (88.0.1):
-    - MaterialComponents/ShapeLibrary
-    - MaterialComponents/Shapes
-  - MaterialComponents/schemes/Typography (88.0.1):
-    - MaterialComponents/Typography
   - MaterialComponents/ShadowElevations (88.0.1)
   - MaterialComponents/ShadowLayer (88.0.1):
     - MaterialComponents/ShadowElevations
-  - MaterialComponents/ShapeLibrary (88.0.1):
-    - MaterialComponents/private/Math
-    - MaterialComponents/Shapes
   - MaterialComponents/Shapes (88.0.1):
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
@@ -150,10 +124,11 @@ PODS:
     - DeviceKit
 
 DEPENDENCIES:
+  - Alamofire
   - Firebase/Core
   - Firebase/Messaging
   - MaterialComponents/Buttons
-  - "MaterialComponents/Buttons+ButtonThemer"
+  - ObjectMapper
   - TrustDeviceInfo
 
 SPEC REPOS:
@@ -206,6 +181,6 @@ SPEC CHECKSUMS:
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   TrustDeviceInfo: bca32888b22967f0a29853ed28da06cbcf20a299
 
-PODFILE CHECKSUM: fe69f4307567f90627286e6510c4e531c66321bf
+PODFILE CHECKSUM: 706278de02ebcb127813030a7e0e942abb27354a
 
 COCOAPODS: 1.7.5

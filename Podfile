@@ -13,5 +13,8 @@ target 'appNotifications' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'TrustDeviceInfo'
+  
+  pod 'Alamofire'
+  pod 'ObjectMapper'
 
 end
