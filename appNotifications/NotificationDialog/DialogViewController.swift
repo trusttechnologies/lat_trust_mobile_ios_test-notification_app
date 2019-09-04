@@ -32,13 +32,35 @@ class DialogViewController: UIViewController {
     
     @IBOutlet weak var stackView: UIStackView!
     
-    @IBOutlet weak var buttonL: MDCButton!//{
-//        didSet{
-//            buttonL:
-//        }
-    //}
-    @IBOutlet weak var buttonC: MDCButton!
-    @IBOutlet weak var buttonR: MDCButton!
+    
+    var urlLeftButton: String?
+    var urlCenterButton: String?
+    var urlRightButton: String?
+    
+    @IBOutlet weak var buttonL: MDCButton!{
+        didSet{
+            buttonL.addTarget(
+                self,
+                action: #selector(onLeftButtonPressed(sender:)),
+                for: .touchUpInside)
+        }
+    }
+    @IBOutlet weak var buttonC: MDCButton!{
+        didSet{
+            buttonC.addTarget(
+                self,
+                action: #selector(onCenterButtonPressed(sender:)),
+                for: .touchUpInside)
+        }
+    }
+    @IBOutlet weak var buttonR: MDCButton!{
+        didSet{
+            buttonR.addTarget(
+                self,
+                action: #selector(onRightButtonPressed(sender:)),
+                for: .touchUpInside)
+        }
+    }
     
     
     //MARK: set the dialog background
@@ -98,24 +120,30 @@ class DialogViewController: UIViewController {
                 buttonC.isHidden = true
                 buttonR.setTitle(buttons![0].text, for: .normal)
                 buttonR.setupButtonWithType(color: buttons![0].color, type: .whiteButton, mdcType: .text)
+                urlRightButton = buttons![0].action
             }
             
             if(buttonCounter == 2){
                 buttonL.isHidden = true
                 buttonC.setTitle(buttons![1].text, for: .normal)
                 buttonC.setupButtonWithType(color: buttons![1].color, type: .whiteButton, mdcType: .text)
+                urlCenterButton = buttons![1].action
                 buttonR.setTitle(buttons![0].text, for: .normal)
                 buttonR.setupButtonWithType(color: buttons![0].color, type: .whiteButton, mdcType: .text)
+                urlRightButton = buttons![0].action
                 
             }
             
             if(buttonCounter == 3){
                 buttonL.setTitle(buttons![2].text, for: .normal)
                 buttonL.setupButtonWithType(color: buttons![2].color, type: .whiteButton, mdcType: .contained)
+                urlLeftButton = buttons![2].action
                 buttonC.setTitle(buttons![1].text, for: .normal)
                 buttonC.setupButtonWithType(color: buttons![1].color, type: .whiteButton, mdcType: .text)
+                urlCenterButton = buttons![1].action
                 buttonR.setTitle(buttons![0].text, for: .normal)
                 buttonR.setupButtonWithType(color: buttons![0].color, type: .whiteButton, mdcType: .text)
+                urlRightButton = buttons![0].action
                 
             }
 
@@ -141,8 +169,18 @@ class DialogViewController: UIViewController {
         }
     }
     
-    @objc func onButtonPressed(sender: UIButton, stringUrl: String) {
-        if let url = URL(string: stringUrl) {
+    @objc func onLeftButtonPressed(sender: UIButton) {
+        if let url = URL(string: urlLeftButton!) {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    @objc func onCenterButtonPressed(sender: UIButton) {
+        if let url = URL(string: urlCenterButton!) {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    @objc func onRightButtonPressed(sender: UIButton) {
+        if let url = URL(string: urlRightButton!) {
             UIApplication.shared.openURL(url)
         }
     }
