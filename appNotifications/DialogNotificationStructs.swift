@@ -9,9 +9,10 @@
 import Foundation
 
 struct GenericNotification: Codable {
+    var type: String!
     var notificationDialog: NotificationDialog?
-    var notificationVideo: String?
-    var notificationBody: String?
+    var notificationVideo: VideoNotification?
+    var notificationBody: BodyNotification?
 
     enum CodingKeys: String, CodingKey {
         case notificationDialog
