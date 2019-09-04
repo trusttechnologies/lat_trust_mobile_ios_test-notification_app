@@ -9,7 +9,6 @@
 import UIKit
 import UserNotifications
 import Firebase
-import ObjectMapper
 
 
 @UIApplicationMain
@@ -19,8 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        FirebaseApp.configure()
+
+        notifications.firebaseConfig(application: application)
+        notifications.registerForRemoteNotifications(application: application)
+        notifications.registerCustomNotificationCategory()
+
 
         PushNotifications().registerForPushNotifications()
 //        PushNotifications().registerCustomNotificationCategory()
@@ -59,10 +61,9 @@ extension AppDelegate{
 //        print("Device Token: \(token)")
 //    }
     
-//    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-//        // 1. Print out error if PNs registration not successful
-//        print("Failed to register for remote notifications with error: \(error)")
-//    }
-    
-
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Unable to register for remote notifications: \(error.localizedDescription)")
+    }
+   
 }
+

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dialog View Controller-->
+        <scene sceneID="tWL-pz-Q7y">
+            <objects>
+                <viewController storyboardIdentifier="DialogView" id="Xu1-a5-sFc" customClass="DialogViewController" customModule="appNotifications" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zQQ-XW-d0E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMK-Hd-6tw">
+                                <rect key="frame" x="0.0" y="39" width="375" height="734"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="persistenceButton:" destination="Xu1-a5-sFc" eventType="touchUpInside" id="iW1-mq-Cki"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UT-bf-ulj" userLabel="DialogView">
+                                <rect key="frame" x="32" y="203" width="311" height="406"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7TY-WO-Inw">
+                                        <rect key="frame" x="257" y="18" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="D0c-XQ-w9Y"/>
+                                            <constraint firstAttribute="width" constant="36" id="LL0-CM-lw0"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="close_icon"/>
+                                        <connections>
+                                            <action selector="closeButton:" destination="Xu1-a5-sFc" eventType="touchUpInside" id="qDS-pK-KEr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7TY-WO-Inw" secondAttribute="trailing" constant="18" id="3It-ka-2md"/>
+                                    <constraint firstItem="7TY-WO-Inw" firstAttribute="top" secondItem="4UT-bf-ulj" secondAttribute="top" constant="18" id="7pg-VO-tOo"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="inx-rd-oNO">
+                                <rect key="frame" x="32" y="569" width="311" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9b-tP-rtE">
+                                        <rect key="frame" x="0.0" y="0.0" width="97" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pG2-eg-qra">
+                                        <rect key="frame" x="107" y="0.0" width="97" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bz-ax-Eqp">
+                                        <rect key="frame" x="214" y="0.0" width="97" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="W09-NA-M1Q"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4UT-bf-ulj" firstAttribute="centerX" secondItem="zQQ-XW-d0E" secondAttribute="centerX" id="1ne-Pt-3Vm"/>
+                            <constraint firstItem="4UT-bf-ulj" firstAttribute="bottom" secondItem="inx-rd-oNO" secondAttribute="bottom" id="BLG-nI-dLy"/>
+                            <constraint firstItem="4UT-bf-ulj" firstAttribute="leading" secondItem="0gW-Ed-TTL" secondAttribute="leading" constant="32" id="Gkq-1t-D4I"/>
+                            <constraint firstItem="4UT-bf-ulj" firstAttribute="centerY" secondItem="zQQ-XW-d0E" secondAttribute="centerY" id="H4H-q1-zsN"/>
+                            <constraint firstItem="inx-rd-oNO" firstAttribute="width" secondItem="4UT-bf-ulj" secondAttribute="width" id="QBI-QD-FqQ"/>
+                            <constraint firstItem="4UT-bf-ulj" firstAttribute="centerX" secondItem="zQQ-XW-d0E" secondAttribute="centerX" id="Yuq-kR-0Gj"/>
+                            <constraint firstItem="inx-rd-oNO" firstAttribute="centerX" secondItem="zQQ-XW-d0E" secondAttribute="centerX" id="a9K-Ge-IFU"/>
+                            <constraint firstItem="4UT-bf-ulj" firstAttribute="height" secondItem="zQQ-XW-d0E" secondAttribute="height" multiplier="0.5" id="eyC-YH-eUf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0gW-Ed-TTL"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="7TY-WO-Inw" id="pBs-ZY-I2S"/>
+                        <outlet property="dialogView" destination="4UT-bf-ulj" id="E4Y-tt-YVG"/>
+                        <outlet property="persistenceButton" destination="oMK-Hd-6tw" id="tc8-x6-7Fm"/>
+                        <outlet property="stackView" destination="inx-rd-oNO" id="51Q-Zu-rVD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k1y-vC-D6F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2520.8000000000002" y="-774.38423645320199"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="close_icon" width="36" height="36"/>
+    </resources>
+</document>

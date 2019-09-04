@@ -6,7 +6,6 @@
 	<string>development</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)jumpitt.appNotifications</string>
 		<string>$(AppIdentifierPrefix)trustID.appLib</string>
 	</array>
 </dict>
