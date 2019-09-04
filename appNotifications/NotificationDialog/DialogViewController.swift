@@ -21,11 +21,8 @@ class DialogViewController: UIViewController {
     @IBOutlet weak var dialogView: UIView!
     
     @IBOutlet weak var persistenceButton: UIButton!
-    
     @IBAction func persistenceButton(_ sender: Any) {
-        print("Hola")
         self.dismiss(animated: true)
-        
     }
     
     @IBOutlet weak var closeButton: UIButton!
@@ -34,6 +31,17 @@ class DialogViewController: UIViewController {
     }
     
     @IBOutlet weak var stackView: UIStackView!
+    
+    @IBOutlet weak var buttonL: MDCButton!//{
+//        didSet{
+//            buttonL:
+//        }
+    //}
+    @IBOutlet weak var buttonC: MDCButton!
+    @IBOutlet weak var buttonR: MDCButton!
+    
+    
+    //MARK: set the dialog background
     func setBackground(color: backgroundColor){
         switch color {
         case .SOLID:
@@ -42,11 +50,10 @@ class DialogViewController: UIViewController {
             view.backgroundColor = UIColor(red:0.17, green:0.16, blue:0.16, alpha:0.6)
         case .NO_BACKGROUND:
             view.backgroundColor = UIColor.clear
-        default:
-            view.backgroundColor = UIColor(red:0.17, green:0.16, blue:0.16, alpha:0.8)
         }
     }
     
+    //MARK: set the dialog content
     func fillDialog(content: GenericNotification!) {
         let imageView = UIImageView()
         let body = UILabel()
@@ -75,7 +82,7 @@ class DialogViewController: UIViewController {
             //Set touching outside the dialog process
             if(!(content.notificationDialog?.isPersistent ?? false)){
                 persistenceButton.isEnabled = true
-                persistenceButton.isHidden = true
+                persistenceButton.isHidden = false
                 setBackground(color: .NO_BACKGROUND)
             }else{
                 persistenceButton.isEnabled = false
@@ -83,16 +90,35 @@ class DialogViewController: UIViewController {
                 setBackground(color: .TRANSPARENT)
             }
             
-//            let button = MDCButton()
-//            button.setupButtonWithType(color: content.notificationDialog?.buttons?[0].color ,type: .whiteButton, mdcType: .text)
-//            button.setTitle(content.notificationDialog?.buttons![0].text, for: .normal)
-//            button.addTarget(
-//                self,
-//                action: #selector(onButtonPressed(sender: button, stringUrl: (content.notificationDialog?.buttons![0].action)!)),
-//                for: .touchUpInside)
-//
-//            stackView.addSubview(button)
-//            stackView.spacing = 10.0
+            let buttons = content.notificationDialog?.buttons
+            let buttonCounter = buttons!.count
+            
+            if(buttonCounter == 1){
+                buttonL.isHidden = true
+                buttonC.isHidden = true
+                buttonR.setTitle(buttons![0].text, for: .normal)
+                buttonR.setupButtonWithType(color: buttons![0].color, type: .whiteButton, mdcType: .text)
+            }
+            
+            if(buttonCounter == 2){
+                buttonL.isHidden = true
+                buttonC.setTitle(buttons![1].text, for: .normal)
+                buttonC.setupButtonWithType(color: buttons![1].color, type: .whiteButton, mdcType: .text)
+                buttonR.setTitle(buttons![0].text, for: .normal)
+                buttonR.setupButtonWithType(color: buttons![0].color, type: .whiteButton, mdcType: .text)
+                
+            }
+            
+            if(buttonCounter == 3){
+                buttonL.setTitle(buttons![2].text, for: .normal)
+                buttonL.setupButtonWithType(color: buttons![2].color, type: .whiteButton, mdcType: .contained)
+                buttonC.setTitle(buttons![1].text, for: .normal)
+                buttonC.setupButtonWithType(color: buttons![1].color, type: .whiteButton, mdcType: .text)
+                buttonR.setTitle(buttons![0].text, for: .normal)
+                buttonR.setupButtonWithType(color: buttons![0].color, type: .whiteButton, mdcType: .text)
+                
+            }
+
             
             //Set body label
             body.text = content.notificationDialog?.textBody
@@ -115,10 +141,10 @@ class DialogViewController: UIViewController {
         }
     }
     
-//    @objc func onButtonPressed(sender: UIButton, stringUrl: String) {
-//        if let url = URL(string: stringUrl) {
-//            UIApplication.shared.openURL(url)
-//        }
-//    }
+    @objc func onButtonPressed(sender: UIButton, stringUrl: String) {
+        if let url = URL(string: stringUrl) {
+            UIApplication.shared.openURL(url)
+        }
+    }
 
 }

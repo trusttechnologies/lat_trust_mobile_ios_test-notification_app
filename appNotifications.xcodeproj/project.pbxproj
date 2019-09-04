@@ -110,10 +110,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7B0878ED232062ED000CFBEB /* PushNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				83234CD92315929A00FA2F1B /* PushNotifications.swift */,
+			);
+			path = PushNotifications;
+			sourceTree = "<group>";
+		};
+		7B0878EE23206327000CFBEB /* NotificationDialog */ = {
+			isa = PBXGroup;
+			children = (
+				7BBFC55D231730A10017AC47 /* DialogView.storyboard */,
+				7B0878E7231D7D58000CFBEB /* DialogViewController.swift */,
+			);
+			path = NotificationDialog;
+			sourceTree = "<group>";
+		};
 		7BBFC5612318318C0017AC47 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				7B0878E9231D7F0E000CFBEB /* Extensions.swift */,
+				7BBFC55F231736650017AC47 /* DialogNotificationStructs.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -141,20 +159,18 @@
 		83234CC523158AF600FA2F1B /* appNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				7B0878EE23206327000CFBEB /* NotificationDialog */,
+				7B0878ED232062ED000CFBEB /* PushNotifications */,
 				7BBFC5612318318C0017AC47 /* Utils */,
 				83234CD823158E3600FA2F1B /* appNotifications.entitlements */,
 				7BBFC55923170BAB0017AC47 /* GoogleService-Info.plist */,
 				83234CC623158AF600FA2F1B /* AppDelegate.swift */,
-				7B0878E7231D7D58000CFBEB /* DialogViewController.swift */,
 				83234CC823158AF600FA2F1B /* ViewController.swift */,
-				83234CD92315929A00FA2F1B /* PushNotifications.swift */,
 				7BBFC564231831FE0017AC47 /* DialogsSettings.swift */,
 				83234CCA23158AF600FA2F1B /* Main.storyboard */,
 				83234CCD23158AF800FA2F1B /* Assets.xcassets */,
-				7BBFC55D231730A10017AC47 /* DialogView.storyboard */,
 				83234CCF23158AF800FA2F1B /* LaunchScreen.storyboard */,
 				83234CD223158AF800FA2F1B /* Info.plist */,
-				7BBFC55F231736650017AC47 /* DialogNotificationStructs.swift */,
 			);
 			path = appNotifications;
 			sourceTree = "<group>";

@@ -14,11 +14,3 @@ enum backgroundColor{
     case NO_BACKGROUND
 }
 
-enum actions{
-    case URL
-    case MAIL
-    case PHONE
-    case INSTAGRAM
-    case TELEGRAM
-    case STORE
-}

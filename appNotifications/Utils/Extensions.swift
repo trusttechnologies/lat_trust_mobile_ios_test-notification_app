@@ -147,8 +147,8 @@ extension MDCButton {
         
         switch type {
         case .whiteButton:
-            colorSchema.primaryColor = .white
-            colorSchema.onPrimaryColor = UIColor.init(hex: color)!
+            colorSchema.primaryColor = UIColor.init(hex: color)!
+            //colorSchema.onPrimaryColor = UIColor.init(hex: color)!
             self.inkColor = UIColor.init(hex: color)!.withAlphaComponent(0.12)
         case .coloredButton:
             colorSchema.primaryColor = UIColor.init(hex: color)!
@@ -157,7 +157,7 @@ extension MDCButton {
         }
         
         buttonScheme.colorScheme = colorSchema
-        buttonScheme.cornerRadius = 16
+        buttonScheme.cornerRadius = 8
         
         self.clipsToBounds = true
         
