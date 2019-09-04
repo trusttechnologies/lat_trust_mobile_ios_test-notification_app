@@ -40,8 +40,15 @@ class PushNotifications: NSObject, MessagingDelegate, UNUserNotificationCenterDe
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
         Identify.shared.trustDeviceInfoDelegate = self
-        Identify.shared.set(serviceName: "defaultServiceName", accessGroup: "KPR7699U74.jumpitt.appNotifications")
+        let serviceName = "defaultServiceName"
+        let accesGroup = "P896AB2AMC.trustID.appLib"
         
+        let clientID = "982862e9fa91bc66da8fd5731241ab9f3c9c0ca7df8e6fc9eeb47b97c160f39b"
+        let clientSecret = "5608eba6cc53cd94abca50ec3f87142006af9fdf5f2d278445f604218467f5d7"
+        
+        Identify.shared.set(serviceName: serviceName, accessGroup: accesGroup)
+        Identify.shared.createClientCredentials(clientID: clientID, clientSecret: clientSecret)
+//        print("CLIENT CREDENTIALS: \(Identify.shared.getClientCredentials())")
         Identify.shared.enable()
         //Identify.shared.getTrustID()
         let bundle = Bundle.main.bundleIdentifier
@@ -66,7 +73,7 @@ class PushNotifications: NSObject, MessagingDelegate, UNUserNotificationCenterDe
         default:
             print("Other Action")
         }
-        
+        print(response.notification.request.content)
         completionHandler()
     }
     
@@ -75,10 +82,12 @@ class PushNotifications: NSObject, MessagingDelegate, UNUserNotificationCenterDe
         let acceptAction = UNNotificationAction(identifier: "accept", title:  "Aceptar", options: [.foreground])
         let denyAction = UNNotificationAction(identifier: "cancel", title: "Cancelar", options: [.destructive])
         //Notification
-        let customCategory =  UNNotificationCategory(identifier: "buttons",
-                                                     actions: [acceptAction,denyAction],
-                                                     intentIdentifiers: [],
-                                                     options: [])
+        let customCategory =  UNNotificationCategory(
+                                identifier: "buttons",
+                                actions: [acceptAction,denyAction],
+                                intentIdentifiers: [],
+                                options: []
+                                )
         
         UNUserNotificationCenter.current().setNotificationCategories([customCategory])
     }
@@ -106,6 +115,11 @@ extension PushNotifications: TrustDeviceInfoDelegate{
         //TODO:
     }
     
-    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,  willPresent notification: UNNotification, withCompletionHandler   completionHandler: @escaping (_ options:   UNNotificationPresentationOptions) -> Void) {
+        print("Handle push from foreground")
+        // custom code to handle push while app is in the foreground
+        registerCustomNotificationCategory()
+        print("\(notification.request.content.userInfo)")
+    }
 }
 
