@@ -78,8 +78,8 @@ extension PushNotifications: MessagingDelegate{
         let serviceName = "defaultServiceName"
         let accesGroup = "P896AB2AMC.trustID.appLib"
         
-        let clientID = "982862e9fa91bc66da8fd5731241ab9f3c9c0ca7df8e6fc9eeb47b97c160f39b"
-        let clientSecret = "5608eba6cc53cd94abca50ec3f87142006af9fdf5f2d278445f604218467f5d7"
+        let clientID = "adcc11078bee4ba2d7880a48c4bed02758a5f5328276b08fa14493306f1e9efb"
+        let clientSecret = "1f647aab37f4a7d7a0da408015437e7a963daca43da06a7789608c319c2930bd"
         
         Identify.shared.set(serviceName: serviceName, accessGroup: accesGroup)
         Identify.shared.createClientCredentials(clientID: clientID, clientSecret: clientSecret)

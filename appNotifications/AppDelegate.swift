@@ -17,15 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
     
+    let notifications = PushNotifications()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         notifications.firebaseConfig(application: application)
         notifications.registerForRemoteNotifications(application: application)
         notifications.registerCustomNotificationCategory()
-
-
-        PushNotifications().registerForPushNotifications()
-//        PushNotifications().registerCustomNotificationCategory()
         return true
     }
 
