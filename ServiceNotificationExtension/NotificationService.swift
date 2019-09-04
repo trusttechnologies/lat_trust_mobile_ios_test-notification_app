@@ -21,7 +21,19 @@ class NotificationService: UNNotificationServiceExtension {
         
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...
-            bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
+            if let data = bestAttemptContent.userInfo["data"] as? Dictionary<AnyHashable, Any>{
+                if let body = data["notificationBody"] as? Dictionary<AnyHashable, Any>{
+                    
+                    if let title = body["text_title"] as? String{
+                        bestAttemptContent.title = title
+                    }
+                    if let subTitle = body["text_body"] as? String{
+                        bestAttemptContent.body = subTitle
+                    }
+                    
+                }
+            }
+//            bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
             
             let urlString = download.getURLpayload(bestAttemptContent: bestAttemptContent, contentHandler: contentHandler)
             
