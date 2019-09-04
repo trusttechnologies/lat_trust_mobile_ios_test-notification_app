@@ -23,6 +23,7 @@ class PushNotifications: NSObject {
         Messaging.messaging().delegate = self
     }
     
+
     func registerForRemoteNotifications(application: UIApplication){
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -46,10 +47,12 @@ class PushNotifications: NSObject {
         let acceptAction = UNNotificationAction(identifier: "accept", title:  "Aceptar", options: [.foreground])
         let denyAction = UNNotificationAction(identifier: "cancel", title: "Cancelar", options: [.destructive])
         //Notification
-        let customCategory =  UNNotificationCategory(identifier: "buttons",
-                                                     actions: [acceptAction,denyAction],
-                                                     intentIdentifiers: [],
-                                                     options: [])
+        let customCategory =  UNNotificationCategory(
+                                identifier: "buttons",
+                                actions: [acceptAction,denyAction],
+                                intentIdentifiers: [],
+                                options: []
+                                )
         
         UNUserNotificationCenter.current().setNotificationCategories([customCategory])
     }
@@ -69,11 +72,18 @@ extension PushNotifications: MessagingDelegate{
         
         let dataDict:[String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
+        Identify.shared.trustDeviceInfoDelegate = self
+        let serviceName = "defaultServiceName"
+        let accesGroup = "P896AB2AMC.trustID.appLib"
         
-        Identify.shared.set(serviceName: "defaultServiceName", accessGroup: "P896AB2AMC.trust.appNotifications")
-        Identify.shared.createClientCredentials(clientID: "982862e9fa91bc66da8fd5731241ab9f3c9c0ca7df8e6fc9eeb47b97c160f39b", clientSecret: "5608eba6cc53cd94abca50ec3f87142006af9fdf5f2d278445f604218467f5d7")
-        print("CLIENT CREDENTIALS: \(Identify.shared.getClientCredentials())")
+        let clientID = "982862e9fa91bc66da8fd5731241ab9f3c9c0ca7df8e6fc9eeb47b97c160f39b"
+        let clientSecret = "5608eba6cc53cd94abca50ec3f87142006af9fdf5f2d278445f604218467f5d7"
         
+        Identify.shared.set(serviceName: serviceName, accessGroup: accesGroup)
+        Identify.shared.createClientCredentials(clientID: clientID, clientSecret: clientSecret)
+//        print("CLIENT CREDENTIALS: \(Identify.shared.getClientCredentials())")
         Identify.shared.enable()
         //Identify.shared.getTrustID()
         let bundle = Bundle.main.bundleIdentifier
@@ -111,6 +121,7 @@ extension PushNotifications: TrustDeviceInfoDelegate{
 //MARK: UserNotifications Handling
 extension PushNotifications: UNUserNotificationCenterDelegate{
     
+
     // MARK: FOREGROUND
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
@@ -134,7 +145,6 @@ extension PushNotifications: UNUserNotificationCenterDelegate{
         
         let genericNotification = parseNotification(content: response.notification.request.content.userInfo)
         
-        
         switch response.actionIdentifier {
         case "accept":
             let url = response.notification.request.content.userInfo["url-scheme"] as? String
@@ -148,6 +158,7 @@ extension PushNotifications: UNUserNotificationCenterDelegate{
         }
         
         completionHandler()
+
     }
 }
 

@@ -10,13 +10,12 @@ import UIKit
 import UserNotifications
 import Firebase
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
-
-    var notifications = PushNotifications()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -24,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notifications.registerForRemoteNotifications(application: application)
         notifications.registerCustomNotificationCategory()
 
+
+        PushNotifications().registerForPushNotifications()
+//        PushNotifications().registerCustomNotificationCategory()
         return true
     }
 
@@ -43,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        notifications.clearBadgeNumber()
+        PushNotifications().clearBadgeNumber()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -54,20 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate{
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-        print("Device Token: \(token)")
-    }
+//    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+//        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+//        print("Device Token: \(token)")
+//    }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-        
-    }
+   
 }
 
