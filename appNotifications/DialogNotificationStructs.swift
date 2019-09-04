@@ -6,8 +6,6 @@
 //  Copyright © 2019 Cristian Parra. All rights reserved.
 //
 
-// ObjectMapper
-
 import Foundation
 
 struct GenericNotification: Codable {

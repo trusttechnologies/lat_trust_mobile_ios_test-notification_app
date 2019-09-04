@@ -1,9 +1,9 @@
 PODS:
   - Alamofire (4.8.2)
-  - AlamofireObjectMapper (5.2.0):
+  - AlamofireObjectMapper (5.2.1):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
-  - DeviceKit (2.0.0)
+  - DeviceKit (2.1.0)
   - Firebase/Core (6.7.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.1.1)
@@ -74,8 +74,8 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.2.5):
     - GoogleUtilities/Logger
-  - MaterialComponents/AnimationTiming (88.0.1)
-  - MaterialComponents/Buttons (88.0.1):
+  - MaterialComponents/AnimationTiming (88.2.0)
+  - MaterialComponents/Buttons (88.2.0):
     - MaterialComponents/Elevation
     - MaterialComponents/Ink
     - MaterialComponents/private/Math
@@ -86,27 +86,53 @@ PODS:
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
-  - MaterialComponents/Elevation (88.0.1):
+  - "MaterialComponents/Buttons+ButtonThemer (88.2.0)":
+    - MaterialComponents/Buttons
+    - "MaterialComponents/Buttons+ColorThemer"
+    - "MaterialComponents/Buttons+ShapeThemer"
+    - "MaterialComponents/Buttons+TypographyThemer"
+    - MaterialComponents/Palettes
+  - "MaterialComponents/Buttons+ColorThemer (88.2.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Color
+  - "MaterialComponents/Buttons+ShapeThemer (88.2.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Shape
+  - "MaterialComponents/Buttons+TypographyThemer (88.2.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Typography
+  - MaterialComponents/Elevation (88.2.0):
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/Ink (88.0.1):
+  - MaterialComponents/Ink (88.2.0):
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/private/Application (88.0.1)
-  - MaterialComponents/private/Color (88.0.1)
-  - MaterialComponents/private/Math (88.0.1)
-  - MaterialComponents/Ripple (88.0.1):
+  - MaterialComponents/Palettes (88.2.0)
+  - MaterialComponents/private/Application (88.2.0)
+  - MaterialComponents/private/Color (88.2.0)
+  - MaterialComponents/private/Math (88.2.0)
+  - MaterialComponents/Ripple (88.2.0):
     - MaterialComponents/AnimationTiming
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/ShadowElevations (88.0.1)
-  - MaterialComponents/ShadowLayer (88.0.1):
+  - MaterialComponents/schemes/Color (88.2.0):
+    - MaterialComponents/private/Color
+  - MaterialComponents/schemes/Shape (88.2.0):
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+  - MaterialComponents/schemes/Typography (88.2.0):
+    - MaterialComponents/Typography
+  - MaterialComponents/ShadowElevations (88.2.0)
+  - MaterialComponents/ShadowLayer (88.2.0):
     - MaterialComponents/ShadowElevations
-  - MaterialComponents/Shapes (88.0.1):
+  - MaterialComponents/ShapeLibrary (88.2.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (88.2.0):
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
-  - MaterialComponents/Typography (88.0.1):
+  - MaterialComponents/Typography (88.2.0):
     - MaterialComponents/private/Application
     - MaterialComponents/private/Math
   - MDFInternationalization (2.0.0)
@@ -124,11 +150,10 @@ PODS:
     - DeviceKit
 
 DEPENDENCIES:
-  - Alamofire
   - Firebase/Core
   - Firebase/Messaging
   - MaterialComponents/Buttons
-  - ObjectMapper
+  - "MaterialComponents/Buttons+ButtonThemer"
   - TrustDeviceInfo
 
 SPEC REPOS:
@@ -159,8 +184,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
-  DeviceKit: 72d36709552d4b3582abd76a53949148acad9811
+  AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
+  DeviceKit: 2f6c28410d5a5fe2977be7f8cb9b313d28bdae69
   Firebase: 291d7b0a7b393f252358083b5d224884126fa46d
   FirebaseAnalytics: 843c7f64a8f9c79f0d03281197ebe7bb1d58d477
   FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
@@ -173,7 +198,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 91e682bd60a49d3f8f69f2e909a66efaed5a1e7a
   GoogleDataTransportCCTSupport: 6b545f7149111180763dc18c6f372c963de4a310
   GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
-  MaterialComponents: e98245f7a1a9802fe442fa4d1f3acbb727ece9ec
+  MaterialComponents: 9c32944d05360aa1e096c3c6058c4c0f784a7bbe
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
@@ -181,6 +206,6 @@ SPEC CHECKSUMS:
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   TrustDeviceInfo: bca32888b22967f0a29853ed28da06cbcf20a299
 
-PODFILE CHECKSUM: 706278de02ebcb127813030a7e0e942abb27354a
+PODFILE CHECKSUM: 587598068cd8f53fce5a76163c5c2970122698e2
 
 COCOAPODS: 1.7.5

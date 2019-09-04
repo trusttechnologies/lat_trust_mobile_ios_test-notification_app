@@ -132,17 +132,18 @@ extension PushNotifications: UNUserNotificationCenterDelegate{
     // MARK: BACKGROUND
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
+        let genericNotification = parseNotification(content: response.notification.request.content.userInfo)
+        
+        
         switch response.actionIdentifier {
         case "accept":
             let url = response.notification.request.content.userInfo["url-scheme"] as? String
             UIApplication.shared.open(URL(string: url!)!, options: [:], completionHandler: nil)
             UIApplication.shared.applicationIconBadgeNumber = 0
-            
         case "cancel":
             UIApplication.shared.applicationIconBadgeNumber = 0
         default:
             print("Other Action")
-            let genericNotification = parseNotification(content: response.notification.request.content.userInfo)
             presentDialog(content: genericNotification)
         }
         

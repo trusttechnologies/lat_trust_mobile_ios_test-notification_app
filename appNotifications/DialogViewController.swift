@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MediaPlayer
+import MaterialComponents
 
 class DialogViewController: UIViewController {
 
@@ -21,13 +23,17 @@ class DialogViewController: UIViewController {
     @IBOutlet weak var persistenceButton: UIButton!
     
     @IBAction func persistenceButton(_ sender: Any) {
+        print("Hola")
         self.dismiss(animated: true)
+        
     }
+    
     @IBOutlet weak var closeButton: UIButton!
     @IBAction func closeButton(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
+    @IBOutlet weak var stackView: UIStackView!
     func setBackground(color: backgroundColor){
         switch color {
         case .SOLID:
@@ -70,15 +76,29 @@ class DialogViewController: UIViewController {
             if(!(content.notificationDialog?.isPersistent ?? false)){
                 persistenceButton.isEnabled = true
                 persistenceButton.isHidden = true
+                setBackground(color: .NO_BACKGROUND)
             }else{
                 persistenceButton.isEnabled = false
                 persistenceButton.isHidden = true
+                setBackground(color: .TRANSPARENT)
             }
+            
+//            let button = MDCButton()
+//            button.setupButtonWithType(color: content.notificationDialog?.buttons?[0].color ,type: .whiteButton, mdcType: .text)
+//            button.setTitle(content.notificationDialog?.buttons![0].text, for: .normal)
+//            button.addTarget(
+//                self,
+//                action: #selector(onButtonPressed(sender: button, stringUrl: (content.notificationDialog?.buttons![0].action)!)),
+//                for: .touchUpInside)
+//
+//            stackView.addSubview(button)
+//            stackView.spacing = 10.0
             
             //Set body label
             body.text = content.notificationDialog?.textBody
             body.textAlignment = NSTextAlignment.center
-            body.frame = CGRect(x: 12 , y: imageView.bounds.maxY + 78, width: dialogView.bounds.width - 24, height: 40)
+            body.frame = CGRect(x: 24 , y: imageView.bounds.maxY + 78, width: dialogView.bounds.width - 24, height: 140)
+            body.lineBreakMode = .byCharWrapping
             body.numberOfLines = 5
             dialogView.addSubview(body)
             
@@ -95,7 +115,10 @@ class DialogViewController: UIViewController {
         }
     }
     
-    
-    
+//    @objc func onButtonPressed(sender: UIButton, stringUrl: String) {
+//        if let url = URL(string: stringUrl) {
+//            UIApplication.shared.openURL(url)
+//        }
+//    }
 
 }
