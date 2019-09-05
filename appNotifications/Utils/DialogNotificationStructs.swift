@@ -15,6 +15,7 @@ struct GenericNotification: Codable {
     var notificationBody: BodyNotification?
 
     enum CodingKeys: String, CodingKey {
+        case type
         case notificationDialog
         case notificationVideo
         case notificationBody

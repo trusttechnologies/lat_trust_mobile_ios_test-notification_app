@@ -131,11 +131,20 @@ extension PushNotifications: UNUserNotificationCenterDelegate{
         print(userInfo)
         
         let genericNotification = parseNotification(content: userInfo)
-        presentDialog(content: genericNotification)
+        
+        switch genericNotification.type {
+            case "notificationBody":
+                presentBodyNotification(content: genericNotification)
+            case "notificationDialog":
+                presentDialog(content: genericNotification)
+            case "notificationVideo":
+                presentVideo(content: genericNotification)
+        default:
+            print("error: must specify a notification type")
+        }
+        
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         Messaging.messaging().appDidReceiveMessage(notification.request.content.userInfo)
-        
-        
         
         completionHandler([])
     }
@@ -154,7 +163,16 @@ extension PushNotifications: UNUserNotificationCenterDelegate{
             UIApplication.shared.applicationIconBadgeNumber = 0
         default:
             print("Other Action")
-            presentDialog(content: genericNotification)
+            switch genericNotification.type {
+            case "notificationBody":
+                presentBodyNotification(content: genericNotification)
+            case "notificationDialog":
+                presentDialog(content: genericNotification)
+            case "notificationVideo":
+                presentVideo(content: genericNotification)
+            default:
+                print("error: must specify a notification type")
+            }
         }
         
         completionHandler()
@@ -176,11 +194,31 @@ extension PushNotifications{
         let window = UIApplication.shared.keyWindow
         
         dialogVC?.modalPresentationStyle = .overCurrentContext
-        dialogVC?.setBackground(color: .SOLID)
-        
         dialogVC?.fillDialog(content: content)
         vc.present(dialogVC!, animated: true)
     
         window?.makeKeyAndVisible()
+    }
+    func presentVideo(content: GenericNotification){
+        //To Do
+        let storyboard = UIStoryboard(name: "VideoView", bundle: nil)
+        let videoVC = storyboard.instantiateViewController(withIdentifier: "VideoView") as? VideoViewController
+        
+        guard let vc = UIApplication.shared.keyWindow?.rootViewController else {
+            return
+        }
+        let window = UIApplication.shared.keyWindow
+        
+        videoVC?.modalPresentationStyle = .overCurrentContext
+        videoVC?.setBackground(color: .SOLID)
+        
+        videoVC?.fillVideo(content: content)
+        vc.present(videoVC!, animated: true)
+        
+        window?.makeKeyAndVisible()
+    }
+    func presentBodyNotification(content: GenericNotification){
+        //To Do
+        print("aquí deberia ir un body")
     }
 }

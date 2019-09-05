@@ -12,6 +12,8 @@
 		7B0878EA231D7F0E000CFBEB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0878E9231D7F0E000CFBEB /* Extensions.swift */; };
 		7B0878F1232156B7000CFBEB /* VideoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0878F0232156B7000CFBEB /* VideoView.storyboard */; };
 		7B0878F3232156D3000CFBEB /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0878F2232156D3000CFBEB /* VideoViewController.swift */; };
+		7B0878F6232197F7000CFBEB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0878F5232197F7000CFBEB /* AVFoundation.framework */; };
+		7B0878F823219C9B000CFBEB /* Benito bailando Hawaii en Don Gato.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7B0878F723219C9B000CFBEB /* Benito bailando Hawaii en Don Gato.mp4 */; };
 		7BBFC55A23170BAB0017AC47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFC55923170BAB0017AC47 /* GoogleService-Info.plist */; };
 		7BBFC55E231730A10017AC47 /* DialogView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFC55D231730A10017AC47 /* DialogView.storyboard */; };
 		7BBFC560231736650017AC47 /* DialogNotificationStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFC55F231736650017AC47 /* DialogNotificationStructs.swift */; };
@@ -58,6 +60,8 @@
 		7B0878E9231D7F0E000CFBEB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7B0878F0232156B7000CFBEB /* VideoView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoView.storyboard; sourceTree = "<group>"; };
 		7B0878F2232156D3000CFBEB /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		7B0878F5232197F7000CFBEB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7B0878F723219C9B000CFBEB /* Benito bailando Hawaii en Don Gato.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Benito bailando Hawaii en Don Gato.mp4"; sourceTree = "<group>"; };
 		7BBFC55923170BAB0017AC47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7BBFC55D231730A10017AC47 /* DialogView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DialogView.storyboard; sourceTree = "<group>"; };
 		7BBFC55F231736650017AC47 /* DialogNotificationStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogNotificationStructs.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B0878F6232197F7000CFBEB /* AVFoundation.framework in Frameworks */,
 				265400A7E9601D0B07BFF1DC /* Pods_appNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +114,7 @@
 		179913BB4D7AFC83328F94F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B0878F5232197F7000CFBEB /* AVFoundation.framework */,
 				6E49FF6AEE79530892F81A1E /* Pods_appNotifications.framework */,
 			);
 			name = Frameworks;
@@ -189,6 +195,7 @@
 				83234CC623158AF600FA2F1B /* AppDelegate.swift */,
 				83234CC823158AF600FA2F1B /* ViewController.swift */,
 				7BBFC564231831FE0017AC47 /* DialogsSettings.swift */,
+				7B0878F723219C9B000CFBEB /* Benito bailando Hawaii en Don Gato.mp4 */,
 				83234CCA23158AF600FA2F1B /* Main.storyboard */,
 				83234CCD23158AF800FA2F1B /* Assets.xcassets */,
 				83234CCF23158AF800FA2F1B /* LaunchScreen.storyboard */,
@@ -303,6 +310,7 @@
 			files = (
 				7BBFC55A23170BAB0017AC47 /* GoogleService-Info.plist in Resources */,
 				7B0878F1232156B7000CFBEB /* VideoView.storyboard in Resources */,
+				7B0878F823219C9B000CFBEB /* Benito bailando Hawaii en Don Gato.mp4 in Resources */,
 				83234CD123158AF800FA2F1B /* LaunchScreen.storyboard in Resources */,
 				83234CCE23158AF800FA2F1B /* Assets.xcassets in Resources */,
 				83234CCC23158AF600FA2F1B /* Main.storyboard in Resources */,
