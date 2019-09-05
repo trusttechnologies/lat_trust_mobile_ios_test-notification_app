@@ -144,7 +144,7 @@ PODS:
   - nanopb/encode (0.3.901)
   - ObjectMapper (3.5.1)
   - Protobuf (3.9.0)
-  - TrustDeviceInfo (1.0.1):
+  - TrustDeviceInfo (1.0.3):
     - Alamofire (~> 4.8.2)
     - AlamofireObjectMapper
     - DeviceKit
@@ -204,7 +204,7 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
-  TrustDeviceInfo: bca32888b22967f0a29853ed28da06cbcf20a299
+  TrustDeviceInfo: f8dbd3fad295c4523a4f654bb70c374f151742b4
 
 PODFILE CHECKSUM: 587598068cd8f53fce5a76163c5c2970122698e2
 

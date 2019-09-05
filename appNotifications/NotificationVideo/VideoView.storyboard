@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="APp-dO-fJy">
+            <objects>
+                <viewController id="g9X-RZ-65c" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WWZ-HX-mfd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHa-Wr-yqM" userLabel="DialogView">
+                                <rect key="frame" x="32" y="224" width="350" height="448"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvn-tY-vA8">
+                                        <rect key="frame" x="296" y="18" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="8vk-eL-2RU"/>
+                                            <constraint firstAttribute="height" constant="36" id="pyj-ri-dEP"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="close_icon"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Nvn-tY-vA8" secondAttribute="trailing" constant="18" id="QTN-cy-5rw"/>
+                                    <constraint firstItem="Nvn-tY-vA8" firstAttribute="top" secondItem="CHa-Wr-yqM" secondAttribute="top" constant="18" id="UFA-gz-r29"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CHa-Wr-yqM" firstAttribute="leading" secondItem="xQN-SO-fPx" secondAttribute="leading" constant="32" id="0br-sX-4hV"/>
+                            <constraint firstItem="CHa-Wr-yqM" firstAttribute="centerY" secondItem="WWZ-HX-mfd" secondAttribute="centerY" id="CZ5-kx-04N"/>
+                            <constraint firstItem="CHa-Wr-yqM" firstAttribute="centerX" secondItem="WWZ-HX-mfd" secondAttribute="centerX" id="PB1-zf-mQ4"/>
+                            <constraint firstItem="CHa-Wr-yqM" firstAttribute="height" secondItem="WWZ-HX-mfd" secondAttribute="height" multiplier="0.5" id="U4g-ci-c0Y"/>
+                            <constraint firstItem="xQN-SO-fPx" firstAttribute="trailing" secondItem="CHa-Wr-yqM" secondAttribute="trailing" constant="32" id="XgB-eL-5hz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xQN-SO-fPx"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6as-AQ-LNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168" y="-76"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="close_icon" width="36" height="36"/>
+    </resources>
+</document>

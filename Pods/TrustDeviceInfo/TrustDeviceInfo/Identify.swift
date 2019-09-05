@@ -32,8 +32,6 @@ public class Identify {
                 setCarrierUpdateNotifier()
                 
                 guard sendDeviceInfoOnEnabled else { return }
-                
-                createClientCredentials()
             } else if !enable && oldValue {
                 disableCarrierUpdateNotifier()
             }
@@ -169,10 +167,7 @@ extension Identify {
         UserDefaults.standard.set(accessGroup, forKey: "accessGroup")
     }
     
-    public func createClientCredentials (
-        clientID: String = "adcc11078bee4ba2d7880a48c4bed02758a5f5328276b08fa14493306f1e9efb",
-        clientSecret: String = "1f647aab37f4a7d7a0da408015437e7a963daca43da06a7789608c319c2930bd") {
-        
+    public func createClientCredentials (clientID: String , clientSecret: String) {
         let parameters = ClientCredentialsParameters(clientID: clientID, clientSecret: clientSecret)
         
         apiManager.getClientCredentials(with: parameters)
