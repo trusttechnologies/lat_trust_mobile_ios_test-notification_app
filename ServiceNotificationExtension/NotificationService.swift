@@ -22,15 +22,35 @@ class NotificationService: UNNotificationServiceExtension {
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...
             if let data = bestAttemptContent.userInfo["data"] as? Dictionary<AnyHashable, Any>{
-                if let body = data["notificationBody"] as? Dictionary<AnyHashable, Any>{
+                if let type = data["notificationBody"] as? Dictionary<AnyHashable, Any>{
                     
-                    if let title = body["text_title"] as? String{
+                    if let title = type["text_title"] as? String{
                         bestAttemptContent.title = title
                     }
-                    if let subTitle = body["text_body"] as? String{
-                        bestAttemptContent.body = subTitle
+                    if let body = type["text_body"] as? String{
+                        bestAttemptContent.body = body
                     }
                     
+                }
+                
+                else if let type = data["notificationDialog"] as? Dictionary<AnyHashable, Any>{
+                    if let title = type["text_title"] as? String{
+                        bestAttemptContent.title = title
+                    }
+                    
+                    if let body = type["text_body"] as? String{
+                        bestAttemptContent.body = body
+                    }
+                }
+                
+                else if let type = data["notificationVideo"] as? Dictionary<AnyHashable, Any>{
+                    
+                    if let title = type["text_title"] as? String{
+                        bestAttemptContent.title = title
+                    }
+                    if let body = type["text_body"] as? String{
+                        bestAttemptContent.body = body
+                    }
                 }
             }
 //            bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
