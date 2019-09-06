@@ -144,13 +144,6 @@
 			path = NotificationVideo;
 			sourceTree = "<group>";
 		};
-		7B0878F423215715000CFBEB /* NotificationBody */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NotificationBody;
-			sourceTree = "<group>";
-		};
 		7BBFC5612318318C0017AC47 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,7 +176,6 @@
 		83234CC523158AF600FA2F1B /* appNotifications */ = {
 			isa = PBXGroup;
 			children = (
-				7B0878F423215715000CFBEB /* NotificationBody */,
 				7B0878EF23215170000CFBEB /* NotificationVideo */,
 				7B0878EE23206327000CFBEB /* NotificationDialog */,
 				7B0878ED232062ED000CFBEB /* PushNotifications */,

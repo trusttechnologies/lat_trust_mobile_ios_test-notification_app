@@ -194,6 +194,7 @@ extension PushNotifications{
         let window = UIApplication.shared.keyWindow
         
         dialogVC?.modalPresentationStyle = .overCurrentContext
+        dialogVC?.setBackground(color: .SOLID)
         dialogVC?.fillDialog(content: content)
         vc.present(dialogVC!, animated: true)
     

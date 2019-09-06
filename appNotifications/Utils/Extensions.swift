@@ -15,9 +15,13 @@ extension UIImageView {
     func load(url: URL) {
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
+                print("----DATA-----")
+                print(data)
+                print("----DATA-----")
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         self?.image = image
+                        print(image)
                     }
                 }
             }
