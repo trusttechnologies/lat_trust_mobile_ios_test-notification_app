@@ -21,19 +21,23 @@ class VideoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var persistenceButton: UIButton!
-    @IBAction func persistenceButton(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
     @IBOutlet weak var closeButton: UIButton!
     @IBAction func closeButton(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
     @IBOutlet weak var videoView: UIView!
-    @IBOutlet weak var videoLabel: UILabel!
+
     var urlRightButton: String?
+    var urlCenterButton: String?
+    @IBOutlet weak var buttonC: MDCButton!{
+        didSet{
+            buttonC.addTarget(
+                self,
+                action: #selector(onRightButtonPressed(sender:)),
+                for: .touchUpInside)
+        }
+    }
     @IBOutlet weak var buttonR: MDCButton!{
         didSet{
         buttonR.addTarget(
@@ -66,9 +70,6 @@ class VideoViewController: UIViewController {
         
         //Set video
         if(verifyUrl(urlString: content.notificationVideo?.videoUrl)){
-//            guard let url = URL(string: content.notificationVideo!.videoUrl) else {
-//                return
-//            }
 
             let videoURL = URL(string: content.notificationVideo!.videoUrl)
             let player = AVPlayer(url: videoURL!)
@@ -80,32 +81,25 @@ class VideoViewController: UIViewController {
             //imageView.isHidden = true
         }
         
-        //Set the close button
-//        if(!(content.notificationVideo?.isCancelable ?? true)){
-//            closeButton.isEnabled = false
-//            closeButton.isHidden = true
-//        }else{
-//            closeButton.isEnabled = true
-//            closeButton.isHidden = false
-//        }
-        
-        //Set touching outside the dialog process
-        if(!(content.notificationVideo?.isPersistent ?? false)){
-            persistenceButton.isEnabled = true
-            persistenceButton.isHidden = false
-            setBackground(color: .NO_BACKGROUND)
-        }else{
-            persistenceButton.isEnabled = false
-            persistenceButton.isHidden = true
-            setBackground(color: .TRANSPARENT)
-        }
-        
         let buttons = content.notificationVideo?.buttons
         let buttonCounter = buttons!.count
-        if buttonCounter != 0{
+        if(buttonCounter == 1){
+            
+            buttonC.isHidden = true
             buttonR.setTitle(buttons![0].text, for: .normal)
             buttonR.setupButtonWithType(color: buttons![0].color, type: .whiteButton, mdcType: .text)
             urlRightButton = buttons![0].action
+        }
+        
+        if(buttonCounter == 2){
+            
+            buttonC.setTitle(buttons![1].text, for: .normal)
+            buttonC.setupButtonWithType(color: buttons![1].color, type: .whiteButton, mdcType: .text)
+            urlCenterButton = buttons![1].action
+            buttonR.setTitle(buttons![0].text, for: .normal)
+            buttonR.setupButtonWithType(color: buttons![0].color, type: .whiteButton, mdcType: .text)
+            urlRightButton = buttons![0].action
+            
         }
     }
 }

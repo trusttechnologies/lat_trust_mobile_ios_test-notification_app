@@ -17,7 +17,12 @@ class DialogViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var dialogView: UIView!
+    @IBOutlet weak var dialogView: UIView!{
+        didSet{
+            dialogView.layer.cornerRadius = 4.0
+            dialogView.clipsToBounds = true
+        }
+    }
     
     @IBOutlet weak var persistenceButton: UIButton!
     @IBAction func persistenceButton(_ sender: Any) {
@@ -30,7 +35,10 @@ class DialogViewController: UIViewController {
     }
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var labelStackView: UIStackView!
     @IBOutlet weak var body: UILabel!
+    @IBOutlet weak var leftMargin: UIView!
+    @IBOutlet weak var rightMargin: UIView!
     var urlCenterButton: String?
     var urlRightButton: String?
     
@@ -134,6 +142,9 @@ class DialogViewController: UIViewController {
                 //dialogView.addSubview(body)
             }else{
                 body.isHidden = true
+                leftMargin.isHidden = true
+                rightMargin.isHidden = true
+                labelStackView.isHidden = true
             }
             
             
