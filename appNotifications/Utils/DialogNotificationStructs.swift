@@ -40,7 +40,7 @@ struct NotificationDialog: Codable {
 
 struct VideoNotification: Codable {
     var videoUrl: String
-    var minPlayTime: String
+    var minPlayTime: Float
     var isPersistent: Bool
     var buttons: [Button]
 

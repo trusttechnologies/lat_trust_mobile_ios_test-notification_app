@@ -20,11 +20,33 @@ class VideoViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBOutlet weak var dialogView: UIView!
+    var flagAudio: Bool = false
+    @IBOutlet weak var audioButton: UIButton!{
+        didSet{
+            let origImage = UIImage(named: "audio_enabled_icon")
+            let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
+            audioButton.setImage(tintedImage, for: .normal)
+            audioButton.tintColor = .white
+        }
+    }
     
+    
+    @IBAction func audioButton(_ sender: Any) {
+        flagAudio = !flagAudio
+    }
+    
+    @IBOutlet weak var closeView: UIView!{
+        didSet{
+            closeView.layer.cornerRadius = 18.0
+        }
+    }
     @IBOutlet weak var closeButton: UIButton!
     @IBAction func closeButton(_ sender: Any) {
+        flagAudio = true
         self.dismiss(animated: true)
     }
+    @IBOutlet weak var remainSecLabel: UILabel!
     
     @IBOutlet weak var videoView: UIView!
 
@@ -34,7 +56,7 @@ class VideoViewController: UIViewController {
         didSet{
             buttonC.addTarget(
                 self,
-                action: #selector(onRightButtonPressed(sender:)),
+                action: #selector(onCenterButtonPressed(sender:)),
                 for: .touchUpInside)
         }
     }
@@ -47,11 +69,21 @@ class VideoViewController: UIViewController {
         }
     }
     
+    @objc func onCenterButtonPressed(sender: UIButton) {
+        if let url = URL(string: urlCenterButton!) {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
     @objc func onRightButtonPressed(sender: UIButton) {
         if let url = URL(string: urlRightButton!) {
             UIApplication.shared.openURL(url)
         }
     }
+    
+    
+
+
     
     //MARK: set the dialog background
     func setBackground(color: backgroundColor){
@@ -70,16 +102,60 @@ class VideoViewController: UIViewController {
         
         //Set video
         if(verifyUrl(urlString: content.notificationVideo?.videoUrl)){
+            
+            remainSecLabel.isHidden = true
 
             let videoURL = URL(string: content.notificationVideo!.videoUrl)
             let player = AVPlayer(url: videoURL!)
             let playerLayer = AVPlayerLayer(player: player)
+            let controller = AVPlayerViewController()
+            controller.player = player
             playerLayer.frame = self.videoView.bounds
-            playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill;
-            playerLayer.needsDisplayOnBoundsChange = true
+            playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoView.layer.addSublayer(playerLayer)
             player.play()
+            
+            let interval = CMTime(seconds: 0.05,
+                                  preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+            player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using:
+                { (progressTime) in
+
+                    let seconds = CMTimeGetSeconds(progressTime)
+                    let remaining = round(Double(content.notificationVideo!.minPlayTime) - seconds)
+                    if(player.status == .readyToPlay ){
+                        player.play()
+                    }
+                    player.isMuted = self.flagAudio
+                    if(player.isMuted){
+                        let origImage = UIImage(named: "audio_disabled_icon")
+                        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
+                        self.audioButton.setImage(tintedImage, for: .normal)
+                        self.audioButton.tintColor = .white
+                    }else{
+                        let origImage = UIImage(named: "audio_enabled_icon")
+                        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
+                        self.audioButton.setImage(tintedImage, for: .normal)
+                        self.audioButton.tintColor = .white
+                    }
+                    //lets move the slider thumb
+                    if(seconds.isLess(than: Double(content.notificationVideo!.minPlayTime))){
+                        self.remainSecLabel.text = "Quedan \(remaining) segundos"
+                        self.remainSecLabel.isHidden = false
+                        self.closeButton.isEnabled = false
+                    }else{
+                        self.remainSecLabel.isHidden = true
+                        self.closeButton.isEnabled = true
+                        self.closeView.fadeOut()
+                        //self.closeView.isHidden = true
+//                        if(self.closeView.frame.size.width > self.closeButton.frame.size.width){
+//                            self.closeView.frame.size.width = self.closeView.frame.size.width - 10
+//
+//                        }
+                    }
+            })
+            
         }else{
+            print("Mawegkbañwoigpoawkg")
             //imageView.isHidden = true
         }
         
@@ -104,4 +180,6 @@ class VideoViewController: UIViewController {
             
         }
     }
+    
+    
 }

@@ -67,25 +67,78 @@
                                     <constraint firstItem="hVl-56-Utg" firstAttribute="height" secondItem="CHa-Wr-yqM" secondAttribute="height" id="oid-kb-jBY"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLe-20-Ugf">
+                                <rect key="frame" x="16" y="60" width="36" height="36"/>
+                                <state key="normal" image="audio_enabled_icon"/>
+                                <connections>
+                                    <action selector="audioButton:" destination="g9X-RZ-65c" eventType="touchUpInside" id="EXT-kr-GSF"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbp-wZ-oDb">
+                                <rect key="frame" x="148" y="60" width="250" height="36"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7Y-bA-gzH">
+                                        <rect key="frame" x="16" y="8" width="200" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="z7Y-bA-gzH" firstAttribute="leading" secondItem="bbp-wZ-oDb" secondAttribute="leading" constant="16" id="63S-Rq-xid"/>
+                                    <constraint firstAttribute="width" constant="250" id="Clf-0a-qeU"/>
+                                    <constraint firstItem="z7Y-bA-gzH" firstAttribute="centerY" secondItem="bbp-wZ-oDb" secondAttribute="centerY" id="jjW-dE-K1Y"/>
+                                    <constraint firstAttribute="height" constant="36" id="raN-iw-EwA"/>
+                                    <constraint firstItem="z7Y-bA-gzH" firstAttribute="width" secondItem="bbp-wZ-oDb" secondAttribute="width" multiplier="0.8" id="yt4-dl-x9r"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZh-1F-doa">
+                                <rect key="frame" x="362" y="60" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="tC7-OF-RxT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <state key="normal" image="close_icon"/>
+                                <connections>
+                                    <action selector="closeButton:" destination="g9X-RZ-65c" eventType="touchUpInside" id="BOa-Et-nSn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="xZh-1F-doa" firstAttribute="height" secondItem="bbp-wZ-oDb" secondAttribute="height" id="4Pl-ou-Zbs"/>
+                            <constraint firstItem="xZh-1F-doa" firstAttribute="top" secondItem="bbp-wZ-oDb" secondAttribute="top" id="7IQ-da-E3j"/>
+                            <constraint firstItem="bbp-wZ-oDb" firstAttribute="trailing" secondItem="xZh-1F-doa" secondAttribute="trailing" id="Ay3-g9-FDQ"/>
                             <constraint firstItem="CHa-Wr-yqM" firstAttribute="centerY" secondItem="WWZ-HX-mfd" secondAttribute="centerY" id="CZ5-kx-04N"/>
+                            <constraint firstItem="uLe-20-Ugf" firstAttribute="top" secondItem="CHa-Wr-yqM" secondAttribute="top" constant="21" id="GBW-Na-fub"/>
+                            <constraint firstItem="bbp-wZ-oDb" firstAttribute="top" secondItem="CHa-Wr-yqM" secondAttribute="top" constant="21" id="Gvb-rO-atB"/>
                             <constraint firstItem="CHa-Wr-yqM" firstAttribute="centerX" secondItem="WWZ-HX-mfd" secondAttribute="centerX" id="PB1-zf-mQ4"/>
+                            <constraint firstItem="uLe-20-Ugf" firstAttribute="leading" secondItem="xQN-SO-fPx" secondAttribute="leading" constant="16" id="PzM-hN-Oae"/>
                             <constraint firstItem="CHa-Wr-yqM" firstAttribute="height" secondItem="xQN-SO-fPx" secondAttribute="height" id="U4g-ci-c0Y"/>
                             <constraint firstItem="CHa-Wr-yqM" firstAttribute="width" secondItem="WWZ-HX-mfd" secondAttribute="width" id="UnC-fW-dN6"/>
+                            <constraint firstItem="CHa-Wr-yqM" firstAttribute="trailing" secondItem="bbp-wZ-oDb" secondAttribute="trailing" constant="16" id="wxY-vb-X5k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xQN-SO-fPx"/>
                     </view>
                     <connections>
+                        <outlet property="audioButton" destination="uLe-20-Ugf" id="bc7-Qk-nci"/>
                         <outlet property="buttonC" destination="bkH-JF-ab3" id="efq-bs-xo3"/>
                         <outlet property="buttonR" destination="u6g-gG-Fez" id="pan-Tc-3Ac"/>
+                        <outlet property="closeButton" destination="xZh-1F-doa" id="Bx7-u2-nvp"/>
+                        <outlet property="closeView" destination="bbp-wZ-oDb" id="94q-Nl-qBd"/>
+                        <outlet property="dialogView" destination="CHa-Wr-yqM" id="f37-EL-2Ms"/>
+                        <outlet property="remainSecLabel" destination="z7Y-bA-gzH" id="8T2-T6-7P9"/>
                         <outlet property="videoView" destination="KH8-l8-yx8" id="sZ9-ta-4U4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6as-AQ-LNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="168" y="-76"/>
+            <point key="canvasLocation" x="166.66666666666669" y="-76.339285714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="audio_enabled_icon" width="36" height="36"/>
+        <image name="close_icon" width="84" height="84"/>
+    </resources>
 </document>
