@@ -134,12 +134,9 @@ class DialogViewController: UIViewController {
             if(content.notificationDialog!.textBody != ""){
                 body.text = content.notificationDialog?.textBody
                 body.textAlignment = NSTextAlignment.center
-                //body.frame = CGRect(x: 24 , y: imageView.bounds.maxY + 78, width: dialogView.bounds.width - 24, height: 140)
                 body.numberOfLines = 0
                 body.lineBreakMode = .byWordWrapping
                 body.sizeToFit()
-                //body.numberOfLines = 5
-                //dialogView.addSubview(body)
             }else{
                 body.isHidden = true
                 leftMargin.isHidden = true

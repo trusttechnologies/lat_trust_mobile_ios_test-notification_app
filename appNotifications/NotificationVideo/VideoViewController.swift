@@ -81,10 +81,6 @@ class VideoViewController: UIViewController {
         }
     }
     
-    
-
-
-    
     //MARK: set the dialog background
     func setBackground(color: backgroundColor){
         switch color {
@@ -146,17 +142,13 @@ class VideoViewController: UIViewController {
                         self.remainSecLabel.isHidden = true
                         self.closeButton.isEnabled = true
                         self.closeView.fadeOut()
-                        //self.closeView.isHidden = true
-//                        if(self.closeView.frame.size.width > self.closeButton.frame.size.width){
-//                            self.closeView.frame.size.width = self.closeView.frame.size.width - 10
-//
-//                        }
+                        
                     }
             })
             
         }else{
-            print("Mawegkbañwoigpoawkg")
-            //imageView.isHidden = true
+            print("ERROR: URL DEL VIDEO NO VALIDA")
+            
         }
         
         let buttons = content.notificationVideo?.buttons
