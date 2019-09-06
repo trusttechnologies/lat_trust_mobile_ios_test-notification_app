@@ -75,6 +75,8 @@ class VideoViewController: UIViewController {
             let player = AVPlayer(url: videoURL!)
             let playerLayer = AVPlayerLayer(player: player)
             playerLayer.frame = self.videoView.bounds
+            playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill;
+            playerLayer.needsDisplayOnBoundsChange = true
             videoView.layer.addSublayer(playerLayer)
             player.play()
         }else{
