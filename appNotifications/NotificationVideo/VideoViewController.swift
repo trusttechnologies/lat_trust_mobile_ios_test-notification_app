@@ -100,6 +100,7 @@ class VideoViewController: UIViewController {
     func fillVideo(content: GenericNotification!) {
         
         //Set video
+        setBackground(color: .NO_BACKGROUND)
         if(verifyUrl(urlString: content.notificationVideo?.videoUrl)){
             
             remainSecLabel.isHidden = true
@@ -110,7 +111,7 @@ class VideoViewController: UIViewController {
             let controller = AVPlayerViewController()
             controller.player = player
             playerLayer.frame = self.videoView.frame
-            playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            playerLayer.videoGravity = AVLayerVideoGravity.resizeAspect
             videoView.layer.addSublayer(playerLayer)
             player.play()
             
