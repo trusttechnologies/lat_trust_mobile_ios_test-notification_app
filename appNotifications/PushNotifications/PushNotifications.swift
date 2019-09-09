@@ -16,6 +16,18 @@ class PushNotifications: NSObject {
     
     //var genericNotification: GenericNotification = GenericNotification.
     
+    var clientId: String?
+    var clientSecret: String?
+    var serviceName: String?
+    var accesGroup: String?
+    
+    init(clientId:String, clientSecret:String, serviceName:String, accesGroup:String) {
+        self.clientId = clientId
+        self.clientSecret = clientSecret
+        self.serviceName = serviceName
+        self.accesGroup = accesGroup
+    }
+    
     func firebaseConfig(application: UIApplication) {
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
@@ -75,14 +87,14 @@ extension PushNotifications: MessagingDelegate{
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
         Identify.shared.trustDeviceInfoDelegate = self
-        let serviceName = "defaultServiceName"
-        let accesGroup = "P896AB2AMC.trustID.appLib"
+//        let serviceName = "defaultServiceName"
+//        let accesGroup = "P896AB2AMC.trustID.appLib"
+//
+//        let clientId = "adcc11078bee4ba2d7880a48c4bed02758a5f5328276b08fa14493306f1e9efb"
+//        let clientSecret = "1f647aab37f4a7d7a0da408015437e7a963daca43da06a7789608c319c2930bd"
         
-        let clientID = "adcc11078bee4ba2d7880a48c4bed02758a5f5328276b08fa14493306f1e9efb"
-        let clientSecret = "1f647aab37f4a7d7a0da408015437e7a963daca43da06a7789608c319c2930bd"
-        
-        Identify.shared.set(serviceName: serviceName, accessGroup: accesGroup)
-        Identify.shared.createClientCredentials(clientID: clientID, clientSecret: clientSecret)
+        Identify.shared.set(serviceName: serviceName!, accessGroup: accesGroup!)
+        Identify.shared.createClientCredentials(clientID: clientId!, clientSecret: clientSecret!)
 //        print("CLIENT CREDENTIALS: \(Identify.shared.getClientCredentials())")
         Identify.shared.enable()
         //Identify.shared.getTrustID()
@@ -131,11 +143,20 @@ extension PushNotifications: UNUserNotificationCenterDelegate{
         print(userInfo)
         
         let genericNotification = parseNotification(content: userInfo)
-        presentDialog(content: genericNotification)
+        
+        switch genericNotification.type {
+            case "notificationBody":
+                presentBodyNotification(content: genericNotification)
+            case "notificationDialog":
+                presentDialog(content: genericNotification)
+            case "notificationVideo":
+                presentVideo(content: genericNotification)
+        default:
+            print("error: must specify a notification type")
+        }
+        
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         Messaging.messaging().appDidReceiveMessage(notification.request.content.userInfo)
-        
-        
         
         completionHandler([])
     }
@@ -154,7 +175,16 @@ extension PushNotifications: UNUserNotificationCenterDelegate{
             UIApplication.shared.applicationIconBadgeNumber = 0
         default:
             print("Other Action")
-            presentDialog(content: genericNotification)
+            switch genericNotification.type {
+            case "notificationBody":
+                presentBodyNotification(content: genericNotification)
+            case "notificationDialog":
+                presentDialog(content: genericNotification)
+            case "notificationVideo":
+                presentVideo(content: genericNotification)
+            default:
+                print("error: must specify a notification type")
+            }
         }
         
         completionHandler()
@@ -177,10 +207,31 @@ extension PushNotifications{
         
         dialogVC?.modalPresentationStyle = .overCurrentContext
         dialogVC?.setBackground(color: .SOLID)
-        
         dialogVC?.fillDialog(content: content)
         vc.present(dialogVC!, animated: true)
     
         window?.makeKeyAndVisible()
+    }
+    func presentVideo(content: GenericNotification){
+        //To Do
+        let storyboard = UIStoryboard(name: "VideoView", bundle: nil)
+        let videoVC = storyboard.instantiateViewController(withIdentifier: "VideoView") as? VideoViewController
+        
+        guard let vc = UIApplication.shared.keyWindow?.rootViewController else {
+            return
+        }
+        let window = UIApplication.shared.keyWindow
+        
+        videoVC?.modalPresentationStyle = .overCurrentContext
+        videoVC?.setBackground(color: .SOLID)
+        
+        videoVC?.fillVideo(content: content)
+        vc.present(videoVC!, animated: true)
+        
+        window?.makeKeyAndVisible()
+    }
+    func presentBodyNotification(content: GenericNotification){
+        //To Do
+        print("aquí deberia ir un body")
     }
 }

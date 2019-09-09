@@ -12,6 +12,7 @@
 		7B0878EA231D7F0E000CFBEB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0878E9231D7F0E000CFBEB /* Extensions.swift */; };
 		7B0878F1232156B7000CFBEB /* VideoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0878F0232156B7000CFBEB /* VideoView.storyboard */; };
 		7B0878F3232156D3000CFBEB /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0878F2232156D3000CFBEB /* VideoViewController.swift */; };
+		7B0878F6232197F7000CFBEB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0878F5232197F7000CFBEB /* AVFoundation.framework */; };
 		7BBFC55A23170BAB0017AC47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFC55923170BAB0017AC47 /* GoogleService-Info.plist */; };
 		7BBFC55E231730A10017AC47 /* DialogView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BBFC55D231730A10017AC47 /* DialogView.storyboard */; };
 		7BBFC560231736650017AC47 /* DialogNotificationStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFC55F231736650017AC47 /* DialogNotificationStructs.swift */; };
@@ -58,6 +59,7 @@
 		7B0878E9231D7F0E000CFBEB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7B0878F0232156B7000CFBEB /* VideoView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoView.storyboard; sourceTree = "<group>"; };
 		7B0878F2232156D3000CFBEB /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		7B0878F5232197F7000CFBEB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7BBFC55923170BAB0017AC47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7BBFC55D231730A10017AC47 /* DialogView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DialogView.storyboard; sourceTree = "<group>"; };
 		7BBFC55F231736650017AC47 /* DialogNotificationStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogNotificationStructs.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B0878F6232197F7000CFBEB /* AVFoundation.framework in Frameworks */,
 				265400A7E9601D0B07BFF1DC /* Pods_appNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +112,7 @@
 		179913BB4D7AFC83328F94F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B0878F5232197F7000CFBEB /* AVFoundation.framework */,
 				6E49FF6AEE79530892F81A1E /* Pods_appNotifications.framework */,
 			);
 			name = Frameworks;
@@ -138,13 +142,6 @@
 				7B0878F2232156D3000CFBEB /* VideoViewController.swift */,
 			);
 			path = NotificationVideo;
-			sourceTree = "<group>";
-		};
-		7B0878F423215715000CFBEB /* NotificationBody */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NotificationBody;
 			sourceTree = "<group>";
 		};
 		7BBFC5612318318C0017AC47 /* Utils */ = {
@@ -179,7 +176,6 @@
 		83234CC523158AF600FA2F1B /* appNotifications */ = {
 			isa = PBXGroup;
 			children = (
-				7B0878F423215715000CFBEB /* NotificationBody */,
 				7B0878EF23215170000CFBEB /* NotificationVideo */,
 				7B0878EE23206327000CFBEB /* NotificationDialog */,
 				7B0878ED232062ED000CFBEB /* PushNotifications */,

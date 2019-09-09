@@ -43,12 +43,21 @@ class FileDownloader: NSObject {
     func getURLpayload(bestAttemptContent: UNMutableNotificationContent?, contentHandler: ((UNNotificationContent) -> Void)? ) -> String {
         var urlString:String?
         if let url = bestAttemptContent!.userInfo["data"] as? Dictionary<AnyHashable, Any> {
-            if let videoURL = url["notificationBody"] as? Dictionary<AnyHashable, Any> {
-                
             
-                    urlString = videoURL["image_url"] as? String
+            if let imageUrl = url["notificationBody"] as? Dictionary<AnyHashable, Any> {
                 
-                //                    urlString = videoURL as? String
+                    urlString = imageUrl["image_url"] as? String
+                
+            }
+            else if let videoURL = url["notificationVideo"] as? Dictionary<AnyHashable, Any> {
+                
+                urlString = videoURL["video_url"] as? String
+                
+            }
+            else if let imageUrl = url["notificationDialog"] as? Dictionary<AnyHashable, Any> {
+                
+                urlString = imageUrl["image_url"] as? String
+                
             }
             else {
                 // Nothing to add to the push, return early.

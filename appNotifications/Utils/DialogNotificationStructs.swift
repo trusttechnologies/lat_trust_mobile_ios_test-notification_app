@@ -15,6 +15,7 @@ struct GenericNotification: Codable {
     var notificationBody: BodyNotification?
 
     enum CodingKeys: String, CodingKey {
+        case type
         case notificationDialog
         case notificationVideo
         case notificationBody
@@ -39,7 +40,7 @@ struct NotificationDialog: Codable {
 
 struct VideoNotification: Codable {
     var videoUrl: String
-    var minPlayTime: String
+    var minPlayTime: Float
     var isPersistent: Bool
     var buttons: [Button]
 
