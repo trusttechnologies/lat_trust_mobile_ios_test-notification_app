@@ -15,9 +15,13 @@ extension UIImageView {
     func load(url: URL) {
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
+                print("----DATA-----")
+                print(data)
+                print("----DATA-----")
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         self?.image = image
+                        print(image)
                     }
                 }
             }
@@ -148,7 +152,8 @@ extension MDCButton {
         switch type {
         case .whiteButton:
             colorSchema.primaryColor = UIColor.init(hex: color)!
-            //colorSchema.onPrimaryColor = UIColor.init(hex: color)!
+            colorSchema.onPrimaryColor = .white
+            colorSchema.backgroundColor = .white
             self.inkColor = UIColor.init(hex: color)!.withAlphaComponent(0.12)
         case .coloredButton:
             colorSchema.primaryColor = UIColor.init(hex: color)!
@@ -172,5 +177,28 @@ extension MDCButton {
             MDCContainedButtonThemer.applyScheme(buttonScheme, to: self)
         }
         self.isUppercaseTitle = true
+    }
+}
+
+extension UIView {
+    
+    func fadeIn(duration: TimeInterval = 0.5, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in }) {
+        self.alpha = 0.0
+        
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.isHidden = false
+            self.alpha = 1.0
+        }, completion: completion)
+    }
+    
+    func fadeOut(duration: TimeInterval = 0.5, delay: TimeInterval = 0.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in }) {
+        self.alpha = 1.0
+        
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.alpha = 0.0
+        }) { (completed) in
+            self.isHidden = true
+            completion(true)
+        }
     }
 }

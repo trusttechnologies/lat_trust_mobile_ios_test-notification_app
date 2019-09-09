@@ -9,7 +9,8 @@
 import UIKit
 import UserNotifications
 import Firebase
-
+import AVKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notifications.firebaseConfig(application: application)
         notifications.registerForRemoteNotifications(application: application)
         notifications.registerCustomNotificationCategory()
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playback, mode: .moviePlayback)
+        }
+        catch {
+            print("Setting category to AVAudioSessionCategoryPlayback failed.")
+        }
+    
         return true
     }
 
