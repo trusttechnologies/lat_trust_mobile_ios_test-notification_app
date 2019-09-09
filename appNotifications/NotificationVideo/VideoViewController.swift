@@ -43,13 +43,15 @@ class VideoViewController: UIViewController {
     }
     @IBOutlet weak var closeButton: UIButton!
     @IBAction func closeButton(_ sender: Any) {
+        closeButton.isEnabled = false
         flagAudio = true
         self.dismiss(animated: true)
     }
     @IBOutlet weak var remainSecLabel: UILabel!
     
-    @IBOutlet weak var videoView: UIView!
 
+    @IBOutlet weak var videoView: UIView!
+    
     var urlRightButton: String?
     var urlCenterButton: String?
     @IBOutlet weak var buttonC: MDCButton!{
@@ -81,6 +83,7 @@ class VideoViewController: UIViewController {
         }
     }
     
+
     //MARK: set the dialog background
     func setBackground(color: backgroundColor){
         switch color {
@@ -106,7 +109,7 @@ class VideoViewController: UIViewController {
             let playerLayer = AVPlayerLayer(player: player)
             let controller = AVPlayerViewController()
             controller.player = player
-            playerLayer.frame = self.videoView.bounds
+            playerLayer.frame = self.videoView.frame
             playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoView.layer.addSublayer(playerLayer)
             player.play()

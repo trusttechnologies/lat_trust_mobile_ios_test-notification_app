@@ -152,7 +152,8 @@ extension MDCButton {
         switch type {
         case .whiteButton:
             colorSchema.primaryColor = UIColor.init(hex: color)!
-            //colorSchema.onPrimaryColor = UIColor.init(hex: color)!
+            colorSchema.onPrimaryColor = .white
+            colorSchema.backgroundColor = .white
             self.inkColor = UIColor.init(hex: color)!.withAlphaComponent(0.12)
         case .coloredButton:
             colorSchema.primaryColor = UIColor.init(hex: color)!

@@ -21,46 +21,55 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHa-Wr-yqM" userLabel="DialogView">
                                 <rect key="frame" x="0.0" y="39" width="414" height="818"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-56-Utg">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-56-Utg">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KH8-l8-yx8" userLabel="VideoView">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OJp-uR-FXT">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KH8-l8-yx8" userLabel="VideoView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="KH8-l8-yx8" firstAttribute="top" secondItem="OJp-uR-FXT" secondAttribute="top" id="qrO-HI-6Mz"/>
+                                                </constraints>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gud-Jl-FAm" userLabel="BottomStackView">
-                                                <rect key="frame" x="0.0" y="758" width="414" height="60"/>
+                                                <rect key="frame" x="0.0" y="746" width="414" height="72"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOf-Dp-1o1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="60"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="165.5" height="72"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkH-JF-ab3" customClass="MDCButton">
-                                                        <rect key="frame" x="196.5" y="0.0" width="103.5" height="60"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <rect key="frame" x="175.5" y="0.0" width="114.5" height="72"/>
+                                                        <state key="normal" title="Button">
+                                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6g-gG-Fez" customClass="MDCButton">
-                                                        <rect key="frame" x="310" y="0.0" width="104" height="60"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <rect key="frame" x="300" y="0.0" width="114" height="72"/>
+                                                        <state key="normal" title="Button">
+                                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="4B7-XK-1Mf"/>
                                                     <constraint firstItem="bkH-JF-ab3" firstAttribute="width" secondItem="u6g-gG-Fez" secondAttribute="width" id="Q0t-8B-qA7"/>
-                                                    <constraint firstItem="TOf-Dp-1o1" firstAttribute="width" secondItem="gud-Jl-FAm" secondAttribute="width" multiplier="0.45" id="mpF-td-CgM"/>
+                                                    <constraint firstItem="TOf-Dp-1o1" firstAttribute="width" secondItem="gud-Jl-FAm" secondAttribute="width" multiplier="0.4" id="mpF-td-CgM"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="KH8-l8-yx8" firstAttribute="width" secondItem="hVl-56-Utg" secondAttribute="width" id="eYS-fR-wBN"/>
-                                            <constraint firstItem="KH8-l8-yx8" firstAttribute="centerX" secondItem="hVl-56-Utg" secondAttribute="centerX" id="elq-VJ-IqQ"/>
-                                            <constraint firstItem="KH8-l8-yx8" firstAttribute="top" secondItem="hVl-56-Utg" secondAttribute="top" id="grX-bK-mbs"/>
                                             <constraint firstItem="gud-Jl-FAm" firstAttribute="centerX" secondItem="hVl-56-Utg" secondAttribute="centerX" id="rFD-n3-FqF"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="OJp-uR-FXT" firstAttribute="height" secondItem="CHa-Wr-yqM" secondAttribute="height" multiplier="0.9" id="1fT-MR-v34"/>
                                     <constraint firstItem="hVl-56-Utg" firstAttribute="centerY" secondItem="CHa-Wr-yqM" secondAttribute="centerY" id="C19-x7-oyU"/>
                                     <constraint firstItem="hVl-56-Utg" firstAttribute="centerX" secondItem="CHa-Wr-yqM" secondAttribute="centerX" id="Xwn-dW-rES"/>
                                     <constraint firstItem="hVl-56-Utg" firstAttribute="width" secondItem="CHa-Wr-yqM" secondAttribute="width" id="eGv-A2-uK5"/>
@@ -84,7 +93,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.8288127200704225" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="z7Y-bA-gzH" firstAttribute="leading" secondItem="bbp-wZ-oDb" secondAttribute="leading" constant="16" id="63S-Rq-xid"/>
                                     <constraint firstAttribute="width" constant="250" id="Clf-0a-qeU"/>
@@ -129,7 +138,7 @@
                         <outlet property="closeView" destination="bbp-wZ-oDb" id="94q-Nl-qBd"/>
                         <outlet property="dialogView" destination="CHa-Wr-yqM" id="f37-EL-2Ms"/>
                         <outlet property="remainSecLabel" destination="z7Y-bA-gzH" id="8T2-T6-7P9"/>
-                        <outlet property="videoView" destination="KH8-l8-yx8" id="sZ9-ta-4U4"/>
+                        <outlet property="videoView" destination="KH8-l8-yx8" id="1JY-eg-XnP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6as-AQ-LNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
