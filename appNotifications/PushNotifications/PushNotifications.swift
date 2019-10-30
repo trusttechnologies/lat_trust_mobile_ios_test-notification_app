@@ -141,16 +141,19 @@ extension PushNotifications: UNUserNotificationCenterDelegate{
         
         let userInfo = notification.request.content.userInfo
         print(userInfo)
-        
+
         let genericNotification = parseNotification(content: userInfo)
-        
+        print(genericNotification)
+        print("------AQUI TRATO DE CONVERTIR A VIDEONOTI--------")
+        let videoNotification = parseVideo(content: genericNotification)
+        print(videoNotification)
         switch genericNotification.type {
             case "notificationBody":
                 presentBodyNotification(content: genericNotification)
             case "notificationDialog":
                 presentDialog(content: genericNotification)
             case "notificationVideo":
-                presentVideo(content: genericNotification)
+                presentVideo(content: videoNotification)
         default:
             print("error: must specify a notification type")
         }
@@ -180,8 +183,8 @@ extension PushNotifications: UNUserNotificationCenterDelegate{
                 presentBodyNotification(content: genericNotification)
             case "notificationDialog":
                 presentDialog(content: genericNotification)
-            case "notificationVideo":
-                presentVideo(content: genericNotification)
+            case "notificationVideo": break
+                //presentVideo(content: genericNotification)
             default:
                 print("error: must specify a notification type")
             }
@@ -212,7 +215,7 @@ extension PushNotifications{
     
         window?.makeKeyAndVisible()
     }
-    func presentVideo(content: GenericNotification){
+    func presentVideo(content: VideoNotification){
         //To Do
         let storyboard = UIStoryboard(name: "VideoView", bundle: nil)
         let videoVC = storyboard.instantiateViewController(withIdentifier: "VideoView") as? VideoViewController

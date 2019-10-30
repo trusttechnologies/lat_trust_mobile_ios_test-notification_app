@@ -11,7 +11,7 @@ import Foundation
 struct GenericNotification: Codable {
     var type: String!
     var notificationDialog: NotificationDialog?
-    var notificationVideo: VideoNotification?
+    var notificationVideo: String?
     var notificationBody: BodyNotification?
 
     enum CodingKeys: String, CodingKey {

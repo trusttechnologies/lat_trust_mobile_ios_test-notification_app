@@ -44,13 +44,31 @@ func verifyUrl (urlString: String?) -> Bool {
 }
 
 func parseNotification(content: [AnyHashable: Any]) -> GenericNotification {
-    
+    print(content["data"])
     //take the notification content and convert it to data
     let jsonData = try! JSONSerialization.data(withJSONObject: content["data"], options: .prettyPrinted)
     
     //decode the notification with the structure of a generic notification
     let jsonDecoder = JSONDecoder()
     let notDialog = try! jsonDecoder.decode(GenericNotification.self, from: jsonData)
+
+    return notDialog
+}
+
+func parseVideo(content: GenericNotification) -> VideoNotification {
+    print(content)
+    let stringcito = content.notificationVideo?.replacingOccurrences(of: "\'", with: "\"", options: .literal, range: nil)
+    print("--------CAMBIANDO COMILLAS -----------")
+    print(stringcito)
+    
+//    let data = stringcito!.data(using: .utf8)!
+//    //take the notification content and convert it to data
+//    let jsonArray = try! JSONSerialization.jsonObject(with: data, options : .fragmentsAllowed) as? [Dictionary<String,Any>]
+//    print(jsonArray)
+//    let jsonData = try! JSONSerialization.data(withJSONObject: jsonArray, options: .prettyPrinted)
+//    //decode the notification with the structure of a generic notification
+    let jsonDecoder = JSONDecoder()
+    let notDialog = try! jsonDecoder.decode(VideoNotification.self, from: stringcito!.data(using: .utf8)!)
 
     return notDialog
 }

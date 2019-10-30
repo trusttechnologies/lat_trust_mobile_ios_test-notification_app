@@ -97,15 +97,15 @@ class VideoViewController: UIViewController {
     }
     
     //MARK: set the dialog content
-    func fillVideo(content: GenericNotification!) {
+    func fillVideo(content: VideoNotification!) {
         
         //Set video
         setBackground(color: .NO_BACKGROUND)
-        if(verifyUrl(urlString: content.notificationVideo?.videoUrl)){
-            
+        if(verifyUrl(urlString: content.videoUrl)){
+
             remainSecLabel.isHidden = true
 
-            let videoURL = URL(string: content.notificationVideo!.videoUrl)
+            let videoURL = URL(string: content.videoUrl)
             let player = AVPlayer(url: videoURL!)
             let playerLayer = AVPlayerLayer(player: player)
             let controller = AVPlayerViewController()
@@ -114,14 +114,14 @@ class VideoViewController: UIViewController {
             playerLayer.videoGravity = AVLayerVideoGravity.resizeAspect
             videoView.layer.addSublayer(playerLayer)
             player.play()
-            
+
             let interval = CMTime(seconds: 0.05,
                                   preferredTimescale: CMTimeScale(NSEC_PER_SEC))
             player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using:
                 { (progressTime) in
 
                     let seconds = CMTimeGetSeconds(progressTime)
-                    let remaining = round(Double(content.notificationVideo!.minPlayTime) - seconds)
+                    let remaining = round(Double(content.minPlayTime) - seconds)
                     if(player.status == .readyToPlay ){
                         player.play()
                     }
@@ -138,7 +138,7 @@ class VideoViewController: UIViewController {
                         self.audioButton.tintColor = .white
                     }
                     //lets move the slider thumb
-                    if(seconds.isLess(than: Double(content.notificationVideo!.minPlayTime))){
+                    if(seconds.isLess(than: Double(content.minPlayTime))){
                         self.remainSecLabel.text = "Quedan \(remaining) segundos"
                         self.remainSecLabel.isHidden = false
                         self.closeButton.isEnabled = false
@@ -146,34 +146,34 @@ class VideoViewController: UIViewController {
                         self.remainSecLabel.isHidden = true
                         self.closeButton.isEnabled = true
                         self.closeView.fadeOut()
-                        
+
                     }
             })
-            
+
         }else{
             print("ERROR: URL DEL VIDEO NO VALIDA")
-            
+
         }
-        
-        let buttons = content.notificationVideo?.buttons
-        let buttonCounter = buttons!.count
+
+        let buttons = content!.buttons
+        let buttonCounter = buttons.count
         if(buttonCounter == 1){
-            
+
             buttonC.isHidden = true
-            buttonR.setTitle(buttons![0].text, for: .normal)
-            buttonR.setupButtonWithType(color: buttons![0].color, type: .whiteButton, mdcType: .text)
-            urlRightButton = buttons![0].action
+            buttonR.setTitle(buttons[0].text, for: .normal)
+            buttonR.setupButtonWithType(color: buttons[0].color, type: .whiteButton, mdcType: .text)
+            urlRightButton = buttons[0].action
         }
-        
+
         if(buttonCounter == 2){
-            
-            buttonC.setTitle(buttons![1].text, for: .normal)
-            buttonC.setupButtonWithType(color: buttons![1].color, type: .whiteButton, mdcType: .text)
-            urlCenterButton = buttons![1].action
-            buttonR.setTitle(buttons![0].text, for: .normal)
-            buttonR.setupButtonWithType(color: buttons![0].color, type: .whiteButton, mdcType: .text)
-            urlRightButton = buttons![0].action
-            
+
+            buttonC.setTitle(buttons[1].text, for: .normal)
+            buttonC.setupButtonWithType(color: buttons[1].color, type: .whiteButton, mdcType: .text)
+            urlCenterButton = buttons[1].action
+            buttonR.setTitle(buttons[0].text, for: .normal)
+            buttonR.setupButtonWithType(color: buttons[0].color, type: .whiteButton, mdcType: .text)
+            urlRightButton = buttons[0].action
+
         }
     }
     

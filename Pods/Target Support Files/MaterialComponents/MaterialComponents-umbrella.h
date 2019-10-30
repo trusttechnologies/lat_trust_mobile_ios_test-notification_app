@@ -98,6 +98,9 @@
 #import "MaterialTypographyScheme.h"
 #import "MDCLegacyFontScheme.h"
 #import "MDCTypographyScheme.h"
+#import "MDCTypographyScheming.h"
+#import "MaterialTypographyScheme+BasicFontScheme.h"
+#import "MDCBasicFontScheme.h"
 
 FOUNDATION_EXPORT double MaterialComponentsVersionNumber;
 FOUNDATION_EXPORT const unsigned char MaterialComponentsVersionString[];
